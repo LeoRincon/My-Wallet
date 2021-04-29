@@ -5,11 +5,34 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>My Wallet</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../src/css/styles.css">
+
 </head>
 
 <body>
+  <main class="container__app">
+    <section class="home">
+      <button class="btn-sign-up" type="button">Sign Up</button>
+      <figure class="logo">
+        <img src="../src/img/image.svg" alt="Logo de la aplicación">
+      </figure>
 
+      <h2>Login</h2>
+
+      <form action="login">
+        <span>Email o Username </span>
+        <input type="text" aria-label="true" placeholder="example@example">
+        <span>Password</span>
+
+        <input type="password" aria-label="true" placeholder="password">
+        <button type="button">Login</button>
+      </form>
+    </section>
+  </main>
+  <script src="../src/js/index.js"></script>
 </body>
 
 </html>
