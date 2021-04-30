@@ -13,18 +13,28 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
-.home {
+main {
   width: 100vw;
-  // height: 100vh;
+  height: 100vh;
+}
+
+.home {
+  & .logo {
+    width: 278px;
+    height: 175px;
+  }
+
+  width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
 
   & h2 {
-    margin-top: 20px;
+    margin-top: $margin-medium;
     text-decoration: none;
     // margin-left: 40px;
     font-size: 2.4rem;
+    color: $color-black;
   }
 
   & .btn-sign-up {
@@ -35,8 +45,8 @@ body {
     align-self: flex-end;
     background-color: $color-primary;
     font-size: 1.6rem;
-    font-weight: 500;
-    color: $color-light;
+    font-weight: 700;
+    color: $color-black;
     border-radius: 30px;
   }
 
@@ -55,22 +65,27 @@ body {
       border-bottom: 1px solid $color-border;
       padding: 0px 10px;
       font-size: 1.6rem;
+      opacity: 0.8;
     }
 
-    & span {
-      margin-top: 20px;
-      color: $color-border;
+    & h3 {
+      margin-top: $margin-high;
+      color: $color-black;
       font-size: 1.4rem;
       align-self: flex-start;
+      font-weight: 500;
     }
 
     & button {
-      margin-top: 30px;
+      margin-top: $margin-high;
       width: 240px;
       height: 50px;
       border: none;
       background-color: $color-primary;
       border-radius: 50px;
+      font-weight: 700;
+      font-size: 1.8rem;
+      color: $color-black;
     }
   }
 }

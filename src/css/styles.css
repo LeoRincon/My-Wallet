@@ -12,16 +12,26 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
+main {
+  width: 100vw;
+  height: 100vh;
+}
+
 .home {
   width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+.home .logo {
+  width: 278px;
+  height: 175px;
+}
 .home h2 {
   margin-top: 20px;
   text-decoration: none;
   font-size: 2.4rem;
+  color: #131212;
 }
 .home .btn-sign-up {
   width: 100px;
@@ -31,8 +41,8 @@ body {
   align-self: flex-end;
   background-color: #fa4a0c;
   font-size: 1.6rem;
-  font-weight: 500;
-  color: #fafafa;
+  font-weight: 700;
+  color: #131212;
   border-radius: 30px;
 }
 .home form {
@@ -49,20 +59,25 @@ body {
   border-bottom: 1px solid #666666;
   padding: 0px 10px;
   font-size: 1.6rem;
+  opacity: 0.8;
 }
-.home form span {
-  margin-top: 20px;
-  color: #666666;
+.home form h3 {
+  margin-top: 40px;
+  color: #131212;
   font-size: 1.4rem;
   align-self: flex-start;
+  font-weight: 500;
 }
 .home form button {
-  margin-top: 30px;
+  margin-top: 40px;
   width: 240px;
   height: 50px;
   border: none;
   background-color: #fa4a0c;
   border-radius: 50px;
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: #131212;
 }
 
 /*# sourceMappingURL=styles.css.map */
