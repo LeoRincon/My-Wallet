@@ -1,4 +1,5 @@
 @import "./_variables.scss";
+@import "./_placeholder.scss";
 
 * {
   margin: 0;
@@ -7,85 +8,194 @@
 }
 html {
   font-size: 62.5%;
+  font-family: "Roboto", sans-serif;
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+  // font-family: "Roboto", sans-serif;
+
+  &.body__dark-model {
+    background-color: $color-dark-mode;
+
+    & .title-login {
+      color: $color-light;
+    }
+
+    & .form-login .sub-title__form {
+      color: $color-light;
+    }
+
+    & .home button {
+      color: $color-light;
+    }
+  }
 }
 
 main {
   width: 100vw;
   height: 100vh;
-}
 
-.home {
-  & .logo {
-    width: 278px;
-    height: 175px;
-  }
-
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  & h2 {
-    margin-top: $margin-medium;
-    text-decoration: none;
-    // margin-left: 40px;
-    font-size: 2.4rem;
-    color: $color-black;
-  }
-
-  & .btn-sign-up {
-    width: 100px;
-    height: 30px;
-    margin: 15px;
-    border: none;
-    align-self: flex-end;
-    background-color: $color-primary;
-    font-size: 1.6rem;
-    font-weight: 700;
-    color: $color-black;
-    border-radius: 30px;
-  }
-
-  & form {
-    width: 80%;
-    // margin-top: 20px;
+  & .home {
+    width: 100vw;
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    & input {
-      width: 100%;
-      height: 30px;
-      margin-top: 15px;
-      border: none;
-      border-bottom: 1px solid $color-border;
-      padding: 0px 10px;
-      font-size: 1.6rem;
-      opacity: 0.8;
-    }
-
-    & h3 {
-      margin-top: $margin-high;
-      color: $color-black;
-      font-size: 1.4rem;
-      align-self: flex-start;
-      font-weight: 500;
-    }
-
-    & button {
-      margin-top: $margin-high;
-      width: 240px;
+    & .nav-login {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 90%;
       height: 50px;
+      // margin-bottom: $margin-medium;
+      transition: 1s ease all;
+      // ----- ------ ----- Styles dark mode----- ---- --
+
+      & .btn__mode-dak {
+        height: 30px;
+        background-color: #343d5b;
+        border-radius: 100px;
+        border: none;
+        position: relative;
+        cursor: pointer;
+        display: flex;
+
+        &::after {
+          content: "";
+          display: block;
+          width: 30px;
+          height: 30px;
+          position: absolute;
+          background-color: $color-light;
+          top: 0;
+          left: 0;
+          right: unset;
+          border-radius: 50%;
+          transition: 1s ease all;
+          box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        &.active__dark-odel {
+          background-color: orange;
+          color: $color-black;
+          &::after {
+            right: 0;
+            left: unset;
+          }
+        }
+
+        & span {
+          width: 30px;
+          height: 30px;
+          line-height: 30px;
+          display: block;
+          background-color: none;
+          color: $color-light;
+        }
+      }
+    }
+
+    & .btn__sign-up {
+      width: 100px;
+      height: 30px;
+      // margin: 15px;
       border: none;
+      // align-self: flex-end;
       background-color: $color-primary;
-      border-radius: 50px;
+      font-size: 1.6rem;
       font-weight: 700;
-      font-size: 1.8rem;
       color: $color-black;
+      border-radius: 30px;
+    }
+    & .logo {
+      width: 278px;
+      height: 175px;
+    }
+
+    & .title-login {
+      @extend %title-login;
+    }
+
+    & .form-login {
+      @extend %form-login;
+
+      & input {
+        @extend %inputs;
+      }
+
+      & .sub-title__form {
+        @extend %sub-title__form;
+        margin-top: $margin-high;
+      }
+
+      & button {
+        @extend %btn-login;
+        margin-top: $margin-high;
+      }
+    }
+  }
+  & .container-modal.active {
+    visibility: hidden;
+  }
+
+  & .container-modal {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(215, 215, 215, 0.5);
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & .modal.modal-active {
+      transform: translateY(-600px);
+    }
+
+    & .modal {
+      position: relative;
+      width: 80%;
+      height: 90%;
+      background-color: $color-light;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-radius: 20px;
+      // transform: translateY(0px);
+
+      & .modal-close {
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        border: none;
+        background-color: $color-primary;
+        font-weight: 700;
+      }
+
+      & h2 {
+        @extend %title-login;
+      }
+
+      & form {
+        @extend %form-login;
+
+        & input {
+          @extend %inputs;
+        }
+
+        & h3 {
+          @extend %sub-title__form;
+          margin-top: $margin-medium;
+        }
+
+        & button {
+          @extend %btn-login;
+          margin-top: $margin-medium;
+        }
+      }
     }
   }
 }

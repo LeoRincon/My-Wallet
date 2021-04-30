@@ -1,57 +1,17 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  font-size: 62.5%;
-}
-
-body {
-  font-family: "Roboto", sans-serif;
-}
-
-main {
-  width: 100vw;
-  height: 100vh;
-}
-
-.home {
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.home .logo {
-  width: 278px;
-  height: 175px;
-}
-.home h2 {
-  margin-top: 20px;
+main .container-modal .modal h2, main .home .title-login {
   text-decoration: none;
   font-size: 2.4rem;
   color: #131212;
 }
-.home .btn-sign-up {
-  width: 100px;
-  height: 30px;
-  margin: 15px;
-  border: none;
-  align-self: flex-end;
-  background-color: #fa4a0c;
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: #131212;
-  border-radius: 30px;
-}
-.home form {
+
+main .container-modal .modal form, main .home .form-login {
   width: 80%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.home form input {
+
+main .container-modal .modal form input, main .home .form-login input {
   width: 100%;
   height: 30px;
   margin-top: 15px;
@@ -59,17 +19,17 @@ main {
   border-bottom: 1px solid #666666;
   padding: 0px 10px;
   font-size: 1.6rem;
-  opacity: 0.8;
+  background-color: transparent;
 }
-.home form h3 {
-  margin-top: 40px;
+
+main .container-modal .modal form h3, main .home .form-login .sub-title__form {
   color: #131212;
   font-size: 1.4rem;
   align-self: flex-start;
   font-weight: 500;
 }
-.home form button {
-  margin-top: 40px;
+
+main .container-modal .modal form button, main .home .form-login button {
   width: 240px;
   height: 50px;
   border: none;
@@ -78,6 +38,151 @@ main {
   font-weight: 700;
   font-size: 1.8rem;
   color: #131212;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "Roboto", sans-serif;
+}
+
+body.body__dark-model {
+  background-color: #292b2d;
+}
+body.body__dark-model .title-login {
+  color: #fafafa;
+}
+body.body__dark-model .form-login .sub-title__form {
+  color: #fafafa;
+}
+body.body__dark-model .home button {
+  color: #fafafa;
+}
+
+main {
+  width: 100vw;
+  height: 100vh;
+}
+main .home {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+main .home .nav-login {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  height: 50px;
+  transition: 1s ease all;
+}
+main .home .nav-login .btn__mode-dak {
+  height: 30px;
+  background-color: #343d5b;
+  border-radius: 100px;
+  border: none;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+}
+main .home .nav-login .btn__mode-dak::after {
+  content: "";
+  display: block;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  background-color: #fafafa;
+  top: 0;
+  left: 0;
+  right: unset;
+  border-radius: 50%;
+  transition: 1s ease all;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.2);
+}
+main .home .nav-login .btn__mode-dak.active__dark-odel {
+  background-color: orange;
+  color: #131212;
+}
+main .home .nav-login .btn__mode-dak.active__dark-odel::after {
+  right: 0;
+  left: unset;
+}
+main .home .nav-login .btn__mode-dak span {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  display: block;
+  background-color: none;
+  color: #fafafa;
+}
+main .home .btn__sign-up {
+  width: 100px;
+  height: 30px;
+  border: none;
+  background-color: #fa4a0c;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #131212;
+  border-radius: 30px;
+}
+main .home .logo {
+  width: 278px;
+  height: 175px;
+}
+main .home .form-login .sub-title__form {
+  margin-top: 40px;
+}
+main .home .form-login button {
+  margin-top: 40px;
+}
+main .container-modal.active {
+  visibility: hidden;
+}
+main .container-modal {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(215, 215, 215, 0.5);
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main .container-modal .modal.modal-active {
+  transform: translateY(-600px);
+}
+main .container-modal .modal {
+  position: relative;
+  width: 80%;
+  height: 90%;
+  background-color: #fafafa;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 20px;
+}
+main .container-modal .modal .modal-close {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  background-color: #fa4a0c;
+  font-weight: 700;
+}
+main .container-modal .modal form h3 {
+  margin-top: 20px;
+}
+main .container-modal .modal form button {
+  margin-top: 20px;
 }
 
 /*# sourceMappingURL=styles.css.map */

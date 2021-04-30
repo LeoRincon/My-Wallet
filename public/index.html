@@ -8,31 +8,65 @@
   <title>My Wallet</title>
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/b4c36c288f.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="../src/css/styles.css">
 
 </head>
 
-<body>
+<body class="">
+
   <main class="container__app">
+
     <section class="home">
-      <button class="btn-sign-up" type="button">Sign Up</button>
+      <nav tabindex="0" aria-label="Navegation" class="nav-login">
+        <button aria-label="Boton dark model" tabindex="0" class="btn__mode-dak" id="mode-dark">
+          <span><i class="fas fa-sun"></i></span>
+          <span><i class="fas fa-moon"></i></span>
+        </button>
+
+        <button class="btn__sign-up" id="signup" type="button">Sign Up</button>
+      </nav>
+
+
       <figuret class="logo">
-        <img tabindex="0" src="../src/img/image.svg" alt="Logo de la aplicación">
+        <img tabindex="0" src="../src/img/logo.svg" alt="Logo de la aplicación">
       </figuret>
 
-      <h2 tabindex="0">Login</h2>
+      <h2 class="title-login" tabindex="0">Login</h2>
 
-      <form action="login">
-        <h3>Email o Username </h3>
-        <input type="text" aria-label="true" placeholder="example@example">
-        <h3>Password</h3>
-
-        <input type="password" aria-label="true" placeholder="password">
-        <button type="button">Login</button>
+      <form class="form-login" action="login">
+        <h3 class="sub-title__form">Email o Username </h3>
+        <input type="text" aria-label="Email o Username" placeholder="example@example">
+        <h3 class="sub-title__form">Password</h3>
+        <input type="password" aria-label="Password" placeholder="password">
+        <button aria-label="login" type="button">Login</button>
       </form>
+
+    </section>
+    <section class="container-modal active">
+      <div class="modal modal-active">
+        <button id="modal-close" class="modal-close">X</button>
+        <img tabindex="0" src="../src/img/icon-signup.svg" alt="Icono de Sing Up">
+        <h2 tabindex="0" class="modal__title">Sing Up</h2>
+        <form action="singup" class="modal__form-singup">
+
+          <h3>Email </h3>
+          <input type="text" aria-label="ingrese su email" placeholder="example@example">
+          <h3>Password</h3>
+          <input type="password" aria-label="Ingrese su password" placeholder="password">
+          <h3>Pais</h3>
+          <input type="text" aria-label="Ingrese su Pais" placeholder="Pais">
+          <button aria-label="login" type="button">Sign Up</button>
+
+        </form>
+
+      </div>
+
     </section>
   </main>
+
   <script src="../src/js/index.js"></script>
+
 </body>
 
 </html>
