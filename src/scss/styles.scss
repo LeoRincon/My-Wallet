@@ -28,6 +28,32 @@ body {
     & .home button {
       color: $color-light;
     }
+
+    & .container-modal {
+      background-color: rgba(0, 0, 0, 0.5);
+
+      & .modal {
+        background-color: $color-black;
+
+        & h2 {
+          color: $color-light;
+        }
+
+        & form {
+          & h3 {
+            color: $color-light;
+          }
+        }
+      }
+
+      .modal-close {
+        color: $color-light;
+      }
+
+      .btn__sign-up {
+        color: $color-light;
+      }
+    }
   }
 }
 

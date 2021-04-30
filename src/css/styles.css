@@ -63,6 +63,24 @@ body.body__dark-model .form-login .sub-title__form {
 body.body__dark-model .home button {
   color: #fafafa;
 }
+body.body__dark-model .container-modal {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+body.body__dark-model .container-modal .modal {
+  background-color: #131212;
+}
+body.body__dark-model .container-modal .modal h2 {
+  color: #fafafa;
+}
+body.body__dark-model .container-modal .modal form h3 {
+  color: #fafafa;
+}
+body.body__dark-model .container-modal .modal-close {
+  color: #fafafa;
+}
+body.body__dark-model .container-modal .btn__sign-up {
+  color: #fafafa;
+}
 
 main {
   width: 100vw;
