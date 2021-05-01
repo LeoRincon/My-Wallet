@@ -57,6 +57,9 @@ body.body__dark-model {
 body.body__dark-model .title-login {
   color: #fafafa;
 }
+body.body__dark-model .form-login input {
+  color: #fafafa;
+}
 body.body__dark-model .form-login .sub-title__form {
   color: #fafafa;
 }
@@ -67,12 +70,15 @@ body.body__dark-model .container-modal {
   background-color: rgba(0, 0, 0, 0.5);
 }
 body.body__dark-model .container-modal .modal {
-  background-color: #131212;
+  background-color: #292b2d;
 }
 body.body__dark-model .container-modal .modal h2 {
   color: #fafafa;
 }
 body.body__dark-model .container-modal .modal form h3 {
+  color: #fafafa;
+}
+body.body__dark-model .container-modal .modal form input {
   color: #fafafa;
 }
 body.body__dark-model .container-modal .modal-close {
@@ -143,10 +149,10 @@ main .home .btn__sign-up {
   width: 100px;
   height: 30px;
   border: none;
-  background-color: #fa4a0c;
+  background-color: #005cee;
   font-size: 1.6rem;
   font-weight: 700;
-  color: #131212;
+  color: #fafafa;
   border-radius: 30px;
 }
 main .home .logo {
@@ -178,7 +184,7 @@ main .container-modal .modal.modal-active {
 main .container-modal .modal {
   position: relative;
   width: 80%;
-  height: 90%;
+  height: 95%;
   background-color: #fafafa;
   display: flex;
   flex-direction: column;
@@ -193,14 +199,14 @@ main .container-modal .modal .modal-close {
   height: 30px;
   border-radius: 50%;
   border: none;
-  background-color: #fa4a0c;
+  background-color: #005cee;
   font-weight: 700;
 }
 main .container-modal .modal form h3 {
   margin-top: 20px;
 }
 main .container-modal .modal form button {
-  margin-top: 20px;
+  margin-top: calc(40px - 10px);
 }
 
 /*# sourceMappingURL=styles.css.map */

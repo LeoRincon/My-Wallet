@@ -21,6 +21,10 @@ body {
       color: $color-light;
     }
 
+    & .form-login input {
+      color: $color-light;
+    }
+
     & .form-login .sub-title__form {
       color: $color-light;
     }
@@ -33,7 +37,7 @@ body {
       background-color: rgba(0, 0, 0, 0.5);
 
       & .modal {
-        background-color: $color-black;
+        background-color: $color-dark-mode;
 
         & h2 {
           color: $color-light;
@@ -41,6 +45,10 @@ body {
 
         & form {
           & h3 {
+            color: $color-light;
+          }
+
+          & input {
             color: $color-light;
           }
         }
@@ -127,10 +135,10 @@ main {
       // margin: 15px;
       border: none;
       // align-self: flex-end;
-      background-color: $color-primary;
+      background-color: $color-secundary;
       font-size: 1.6rem;
       font-weight: 700;
-      color: $color-black;
+      color: $color-light;
       border-radius: 30px;
     }
     & .logo {
@@ -181,7 +189,7 @@ main {
     & .modal {
       position: relative;
       width: 80%;
-      height: 90%;
+      height: 95%;
       background-color: $color-light;
       display: flex;
       flex-direction: column;
@@ -197,7 +205,7 @@ main {
         height: 30px;
         border-radius: 50%;
         border: none;
-        background-color: $color-primary;
+        background-color: $color-secundary;
         font-weight: 700;
       }
 
@@ -219,7 +227,7 @@ main {
 
         & button {
           @extend %btn-login;
-          margin-top: $margin-medium;
+          margin-top: calc(#{$margin-high} - 10px);
         }
       }
     }
