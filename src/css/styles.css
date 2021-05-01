@@ -1,17 +1,17 @@
-main .container-modal .modal h2, main .home .title-login {
+main .container-modal .modal h2, main .home-login .title-login {
   text-decoration: none;
   font-size: 2.4rem;
   color: #131212;
 }
 
-main .container-modal .modal form, main .home .form-login {
+main .container-modal .modal form, main .home-login .form-login {
   width: 80%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-main .container-modal .modal form input, main .home .form-login input {
+main .container-modal .modal form input, main .home-login .form-login input {
   width: 100%;
   height: 30px;
   margin-top: 15px;
@@ -22,14 +22,14 @@ main .container-modal .modal form input, main .home .form-login input {
   background-color: transparent;
 }
 
-main .container-modal .modal form h3, main .home .form-login .sub-title__form {
+main .container-modal .modal form h3, main .home-login .form-login .sub-title__form {
   color: #131212;
   font-size: 1.4rem;
   align-self: flex-start;
   font-weight: 500;
 }
 
-main .container-modal .modal form button, main .home .form-login button {
+main .container-modal .modal form button, main .home-login .form-login button {
   width: 240px;
   height: 50px;
   border: none;
@@ -63,7 +63,7 @@ body.body__dark-model .form-login input {
 body.body__dark-model .form-login .sub-title__form {
   color: #fafafa;
 }
-body.body__dark-model .home button {
+body.body__dark-model .home-login button {
   color: #fafafa;
 }
 body.body__dark-model .container-modal {
@@ -92,13 +92,13 @@ main {
   width: 100vw;
   height: 100vh;
 }
-main .home {
+main .home-login {
   width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-main .home .nav-login {
+main .home-login .nav-login {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -106,7 +106,7 @@ main .home .nav-login {
   height: 50px;
   transition: 1s ease all;
 }
-main .home .nav-login .btn__mode-dak {
+main .home-login .nav-login .btn__mode-dak {
   height: 30px;
   background-color: #343d5b;
   border-radius: 100px;
@@ -115,7 +115,7 @@ main .home .nav-login .btn__mode-dak {
   cursor: pointer;
   display: flex;
 }
-main .home .nav-login .btn__mode-dak::after {
+main .home-login .nav-login .btn__mode-dak::after {
   content: "";
   display: block;
   width: 30px;
@@ -129,15 +129,15 @@ main .home .nav-login .btn__mode-dak::after {
   transition: 1s ease all;
   box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.2);
 }
-main .home .nav-login .btn__mode-dak.active__dark-odel {
+main .home-login .nav-login .btn__mode-dak.active__dark-odel {
   background-color: orange;
   color: #131212;
 }
-main .home .nav-login .btn__mode-dak.active__dark-odel::after {
+main .home-login .nav-login .btn__mode-dak.active__dark-odel::after {
   right: 0;
   left: unset;
 }
-main .home .nav-login .btn__mode-dak span {
+main .home-login .nav-login .btn__mode-dak span {
   width: 30px;
   height: 30px;
   line-height: 30px;
@@ -145,7 +145,7 @@ main .home .nav-login .btn__mode-dak span {
   background-color: none;
   color: #fafafa;
 }
-main .home .btn__sign-up {
+main .home-login .btn__sign-up {
   width: 100px;
   height: 30px;
   border: none;
@@ -155,14 +155,14 @@ main .home .btn__sign-up {
   color: #fafafa;
   border-radius: 30px;
 }
-main .home .logo {
+main .home-login .logo {
   width: 278px;
   height: 175px;
 }
-main .home .form-login .sub-title__form {
+main .home-login .form-login .sub-title__form {
   margin-top: 40px;
 }
-main .home .form-login button {
+main .home-login .form-login button {
   margin-top: 40px;
 }
 main .container-modal.active {
