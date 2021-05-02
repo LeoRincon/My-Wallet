@@ -201,6 +201,7 @@ main .container-modal .modal .modal-close {
   border: none;
   background-color: #005cee;
   font-weight: 700;
+  color: #fafafa;
 }
 main .container-modal .modal form h3 {
   margin-top: 20px;
