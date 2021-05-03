@@ -99,12 +99,28 @@
         <i class="fas fa-history icon-history"></i>
         <button id="open_modal_revenue">+</button>
       </nav>
+      <!-- ---------Modal add revenue and expenses--------------- -->
+      <section class="container-modal__revenue">
+        <div class="modal-revenue">
+          <button class="btn__close-mdal--revenue">X</button>
+          <h2>Añadir ingreso / Gasto</h2>
+          <form action="revenue">
+            <h3>Categoria</h3>
+            <input type="text" aria-label="ingrese su categoria" placeholder="categoria: 'hogar'">
+            <h3>Descripción</h3>
+            <input type="text" aria-label="ingrese su description" placeholder="pago de renta">
+            <h3>Valor</h3>
+            <input type="number" aria-label="ingrese su valor" placeholder="$500">
+            <button class="btn__add-revenue" aria-label="revenue" type="button">Añadir</button>
 
+          </form>
+        </div>
+      </section>
 
     </section>
 
     <!-- ---------Modal add revenue and expenses--------------- -->
-    <section class="container-modal__revenue">
+    <!-- <section class="container-modal__revenue">
       <div class="modal-revenue">
         <button class="btn__close-mdal--revenue">X</button>
         <h2>Añadir ingreso / Gasto</h2>
@@ -119,7 +135,7 @@
 
         </form>
       </div>
-    </section>
+    </section> -->
 
 
   </main>
