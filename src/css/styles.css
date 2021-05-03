@@ -75,16 +75,32 @@ body.body__dark-model .container-modal .modal {
 body.body__dark-model .container-modal .modal h2 {
   color: #fafafa;
 }
-body.body__dark-model .container-modal .modal form h3 {
-  color: #fafafa;
-}
+body.body__dark-model .container-modal .modal form h3,
 body.body__dark-model .container-modal .modal form input {
   color: #fafafa;
 }
-body.body__dark-model .container-modal .modal-close {
+body.body__dark-model .container-modal .modal-close,
+body.body__dark-model .container-modal .btn__sign-up {
   color: #fafafa;
 }
-body.body__dark-model .container-modal .btn__sign-up {
+body.body__dark-model .home-dashboard {
+  background-color: #292b2d;
+}
+body.body__dark-model .home-dashboard .dashboard__header {
+  color: #fa4a0c;
+}
+body.body__dark-model .home-dashboard select {
+  background-color: #fee9b0;
+}
+body.body__dark-model .container-modal__revenue {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+body.body__dark-model .container-modal__revenue .modal-revenue {
+  background-color: #292b2d;
+}
+body.body__dark-model .container-modal__revenue .modal-revenue .btn__close-mdal--revenue,
+body.body__dark-model .container-modal__revenue .modal-revenue h3,
+body.body__dark-model .container-modal__revenue .modal-revenue button {
   color: #fafafa;
 }
 
@@ -231,7 +247,14 @@ main .container-modal .modal form button {
   width: 45px;
   height: 45px;
 }
-.home-dashboard .card-balance {
+.home-dashboard .wrap__card-balance {
+  background-color: #fafafa;
+  width: 280px;
+  height: 100px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+.home-dashboard .wrap__card-balance .card-balance {
   background-image: url("../img/card-statistical.svg");
   background-position: center;
   background-size: cover;
@@ -245,11 +268,11 @@ main .container-modal .modal form button {
   justify-content: center;
   align-items: center;
 }
-.home-dashboard .card-balance h3 {
+.home-dashboard .wrap__card-balance .card-balance h3 {
   font-size: 2.4rem;
   color: #fa4a0c;
 }
-.home-dashboard .card-balance h4 {
+.home-dashboard .wrap__card-balance .card-balance h4 {
   margin-top: 5px;
   font-size: 1.8rem;
   color: #005cee;
@@ -270,18 +293,20 @@ main .container-modal .modal form button {
   grid-area: statistic;
 }
 .home-dashboard .container-statistic select {
-  width: 85px;
-  height: 30px;
+  width: 90px;
+  height: 25px;
   border: none;
   color: #005cee;
+  background-color: transparent;
   border-radius: 10px;
   font-weight: 700;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   grid-area: filtro;
 }
 .home-dashboard .container-statistic div {
   width: 100%;
   height: 100%;
+  margin-top: 25px;
   box-shadow: 0px 1px 6px 0px #b7b3b3;
   border-radius: 30px;
   grid-area: chart;
