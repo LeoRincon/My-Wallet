@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/b4c36c288f.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/b4c36c288f.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="../src/css/styles.css">
 
 </head>
@@ -42,7 +43,7 @@
         <button aria-label="login" type="button">Login</button>
       </form>
 
-      <!-- ------- ------- -------- Modal -------------------- -->
+      <!-- ------- ---- -------- Modal Sign Up ---------- -->
 
     </section>
     <section class="container-modal active">
@@ -67,9 +68,9 @@
     </section>
 
     <section class="home-dashboard">
-      <div class="data-user">
+      <div class="dashboard__header">
         <h2 class="name-user">
-          Hi, <span>Name User</span>
+          Hi, <span class="name-user" id="name_user">Name User</span>
         </h2>
         <img src="https://static.platzi.com/media/learningpath/badges/fc491fa0-c1ca-448b-8262-629406154dfc.jpg"
           alt="foto de perfil del usuario">
@@ -79,20 +80,43 @@
         <h4>$ <span>40.000</span></h4>
       </div>
       <section class="container-statistic">
-        <h2>Statistic</h2>
+        <h2>Statistic:</h2>
         <select name="time-statistic" id="statistic">
           <option value="Semanal">Semanal</option>
           <option value="Mensual">Mensual</option>
-          <div>
-
-          </div>
-          <button>+</button>
-          <nav>
-
-          </nav>
         </select>
+        <div class="paint-statistic">
+        </div>
       </section>
+
+      <nav class="nav">
+        <i class="fas fa-home icon-home"></i>
+        <!-- <i class="fas fa-chart-bar icon-chart"></i> -->
+        <i class="fas fa-history icon-history"></i>
+        <button id="open_modal_revenue">+</button>
+      </nav>
+
+
     </section>
+
+    <!-- ---------Modal add revenue and expenses--------------- -->
+    <section class="container-modal__revenue">
+      <div class="modal-revenue">
+        <button class="btn__close-mdal--revenue">X</button>
+        <h2>Añadir ingreso / Gasto</h2>
+        <form action="revenue">
+          <h3>Categoria</h3>
+          <input type="text" aria-label="ingrese su categoria" placeholder="categoria: 'hogar'">
+          <h3>Descripción</h3>
+          <input type="text" aria-label="ingrese su description" placeholder="pago de renta">
+          <h3>Valor</h3>
+          <input type="number" aria-label="ingrese su valor" placeholder="$500">
+          <button class="btn__add-revenue" aria-label="revenue" type="button">Añadir</button>
+
+        </form>
+      </div>
+    </section>
+
 
   </main>
 
