@@ -22,7 +22,7 @@ main .container-modal .modal h2, main .home-login .title-login {
   background-color: transparent;
 }
 
-.container-modal__revenue .modal-revenue form h3, main .container-modal .modal form h3, main .home-login .form-login .sub-title__form {
+.container-modal__revenue .modal-revenue form label, main .container-modal .modal form label, main .home-login .form-login .sub-title__form {
   color: #131212;
   font-size: 1.4rem;
   align-self: flex-start;
@@ -75,7 +75,7 @@ body.body__dark-model .container-modal .modal {
 body.body__dark-model .container-modal .modal h2 {
   color: #fafafa;
 }
-body.body__dark-model .container-modal .modal form h3,
+body.body__dark-model .container-modal .modal form label,
 body.body__dark-model .container-modal .modal form input {
   color: #fafafa;
 }
@@ -99,7 +99,7 @@ body.body__dark-model .container-modal__revenue .modal-revenue {
   background-color: #292b2d;
 }
 body.body__dark-model .container-modal__revenue .modal-revenue .btn__close-mdal--revenue,
-body.body__dark-model .container-modal__revenue .modal-revenue h3,
+body.body__dark-model .container-modal__revenue .modal-revenue label,
 body.body__dark-model .container-modal__revenue .modal-revenue button {
   color: #fafafa;
 }
@@ -170,6 +170,7 @@ main .home-login .btn__sign-up {
   font-weight: 700;
   color: #fafafa;
   border-radius: 30px;
+  cursor: pointer;
 }
 main .home-login .logo {
   width: 278px;
@@ -180,6 +181,7 @@ main .home-login .form-login .sub-title__form {
 }
 main .home-login .form-login button {
   margin-top: 40px;
+  cursor: pointer;
 }
 main .container-modal.active {
   visibility: hidden;
@@ -218,8 +220,9 @@ main .container-modal .modal .modal-close {
   background-color: #005cee;
   font-weight: 700;
   color: #fafafa;
+  cursor: pointer;
 }
-main .container-modal .modal form h3 {
+main .container-modal .modal form label {
   margin-top: 20px;
 }
 main .container-modal .modal form button {
@@ -268,7 +271,7 @@ main .container-modal .modal form button {
   justify-content: center;
   align-items: center;
 }
-.home-dashboard .wrap__card-balance .card-balance h3 {
+.home-dashboard .wrap__card-balance .card-balance label {
   font-size: 2.4rem;
   color: #fa4a0c;
 }
@@ -390,7 +393,7 @@ main .container-modal .modal form button {
   font-weight: 700;
   color: #005cee;
 }
-.container-modal__revenue .modal-revenue form h3 {
+.container-modal__revenue .modal-revenue form label {
   font-size: 1.8rem;
 }
 .container-modal__revenue .modal-revenue form input {

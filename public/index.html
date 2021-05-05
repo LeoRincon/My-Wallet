@@ -35,106 +35,94 @@
 
       <h2 class="title-login" tabindex="0">Login</h2>
 
-      <form class="form-login" action="login">
-        <h3 class="sub-title__form">Email o Username </h3>
-        <input type="text" aria-label="Email o Username" placeholder="example@example">
-        <h3 class="sub-title__form">Password</h3>
-        <input type="password" aria-label="Password" placeholder="password">
-        <button aria-label="login" type="button">Login</button>
+      <form id="form_login" class="form-login" action="login">
+        <label class="sub-title__form">Email o Username </label>
+        <input name="email" type="text" aria-label="Email o Username" placeholder="example@example">
+        <label class="sub-title__form">Password</label>
+        <input name="password" type="password" aria-label="Password" placeholder="password">
+        <button aria-label="login" type="submit">Login</button>
       </form>
+      <section class="container-modal active">
+        <div tabindex="0" class="modal modal-active">
+          <button id="modal-close" class="modal-close">X</button>
+          <img tabindex="0" src="../src/img/icon-signup.svg" alt="Icono de Sing Up">
+          <h2 tabindex="0" class="modal__title">Sing Up</h2>
 
+          <form id="form_signup" action="singup" class="modal__form-singup">
+
+            <label>Email </label>
+            <input name="email" type="text" aria-label="ingrese su email" placeholder="example@example">
+            <label>Password</label>
+            <input name="password" type="password" aria-label="Ingrese su password" placeholder="password">
+            <label>Pais</label>
+            <input name="pais" type="text" aria-label="Ingrese su Pais" placeholder="Pais">
+            <button class="btn__sign-up" aria-label="login" type="submit">Sign Up</button>
+
+          </form>
+
+        </div>
+
+      </section>
       <!-- ------- ---- -------- Modal Sign Up ---------- -->
-
-    </section>
-    <section class="container-modal active">
-      <div tabindex="0" class="modal modal-active">
-        <button id="modal-close" class="modal-close">X</button>
-        <img tabindex="0" src="../src/img/icon-signup.svg" alt="Icono de Sing Up">
-        <h2 tabindex="0" class="modal__title">Sing Up</h2>
-        <form action="singup" class="modal__form-singup">
-
-          <h3>Email </h3>
-          <input type="text" aria-label="ingrese su email" placeholder="example@example">
-          <h3>Password</h3>
-          <input type="password" aria-label="Ingrese su password" placeholder="password">
-          <h3>Pais</h3>
-          <input type="text" aria-label="Ingrese su Pais" placeholder="Pais">
-          <button class="btn__sign-up" aria-label="login" type="button">Sign Up</button>
-
-        </form>
-
-      </div>
 
     </section>
 
     <!-- *********** Dashboard  -->
+    <!-- <template> -->
+    <div id="container__dashboard">
+      <section class="home-dashboard" id="home_dashboard">
+        <div class="dashboard__header">
+          <h2 class="name-user">
+            Hi, <span class="name-user" id="name_user">Name User</span>
+          </h2>
+          <img src="https://static.platzi.com/media/learningpath/badges/fc491fa0-c1ca-448b-8262-629406154dfc.jpg"
+            alt="foto de perfil del usuario">
+        </div>
+        <div class="wrap__card-balance">
+          <div class="card-balance">
+            <h3 class="title-balance">Account balance</h3>
+            <h4>$ <span>40.000</span></h4>
+          </div>
+        </div>
+        <section class="container-statistic">
+          <h2>Statistic:</h2>
+          <select name="time-statistic" id="statistic">
+            <option value="Semanal">Semanal</option>
+            <option value="Mensual">Mensual</option>
+          </select>
+          <div class="paint-statistic">
+          </div>
+        </section>
 
-    <section class="home-dashboard">
-      <div class="dashboard__header">
-        <h2 class="name-user">
-          Hi, <span class="name-user" id="name_user">Name User</span>
-        </h2>
-        <img src="https://static.platzi.com/media/learningpath/badges/fc491fa0-c1ca-448b-8262-629406154dfc.jpg"
-          alt="foto de perfil del usuario">
-      </div>
-      <div class="wrap__card-balance">
-        <div class="card-balance">
-          <h3 class="title-balance">Account balance</h3>
-          <h4>$ <span>40.000</span></h4>
-        </div>
-      </div>
-      <section class="container-statistic">
-        <h2>Statistic:</h2>
-        <select name="time-statistic" id="statistic">
-          <option value="Semanal">Semanal</option>
-          <option value="Mensual">Mensual</option>
-        </select>
-        <div class="paint-statistic">
-        </div>
+        <nav class="nav">
+          <i class="fas fa-home icon-home"></i>
+          <i class="fas fa-history icon-history"></i>
+          <button id="open_modal_revenue">+</button>
+        </nav>
+
+        <!-- ---------Modal add revenue and expenses--------------- -->
+        <section class="container-modal__revenue">
+          <div class="modal-revenue">
+            <button class="btn__close-mdal--revenue">X</button>
+            <h2>Añadir ingreso / Gasto</h2>
+            <form action="revenue">
+              <label>Categoria</label>
+              <input type="text" aria-label="ingrese su categoria" placeholder="categoria: 'hogar'">
+              <label>Descripción</label>
+              <input type="text" aria-label="ingrese su description" placeholder="pago de renta">
+              <label>Valor</label>
+              <input type="number" aria-label="ingrese su valor" placeholder="$500">
+              <button class="btn__add-revenue" aria-label="revenue" type="button">Añadir</button>
+
+            </form>
+          </div>
+        </section>
+
       </section>
+    </div>
+    <!-- </template> -->
 
-      <nav class="nav">
-        <i class="fas fa-home icon-home"></i>
-        <i class="fas fa-history icon-history"></i>
-        <button id="open_modal_revenue">+</button>
-      </nav>
-      <!-- ---------Modal add revenue and expenses--------------- -->
-      <section class="container-modal__revenue">
-        <div class="modal-revenue">
-          <button class="btn__close-mdal--revenue">X</button>
-          <h2>Añadir ingreso / Gasto</h2>
-          <form action="revenue">
-            <h3>Categoria</h3>
-            <input type="text" aria-label="ingrese su categoria" placeholder="categoria: 'hogar'">
-            <h3>Descripción</h3>
-            <input type="text" aria-label="ingrese su description" placeholder="pago de renta">
-            <h3>Valor</h3>
-            <input type="number" aria-label="ingrese su valor" placeholder="$500">
-            <button class="btn__add-revenue" aria-label="revenue" type="button">Añadir</button>
 
-          </form>
-        </div>
-      </section>
-
-    </section>
-
-    <!-- ---------Modal add revenue and expenses--------------- -->
-    <!-- <section class="container-modal__revenue">
-      <div class="modal-revenue">
-        <button class="btn__close-mdal--revenue">X</button>
-        <h2>Añadir ingreso / Gasto</h2>
-        <form action="revenue">
-          <h3>Categoria</h3>
-          <input type="text" aria-label="ingrese su categoria" placeholder="categoria: 'hogar'">
-          <h3>Descripción</h3>
-          <input type="text" aria-label="ingrese su description" placeholder="pago de renta">
-          <h3>Valor</h3>
-          <input type="number" aria-label="ingrese su valor" placeholder="$500">
-          <button class="btn__add-revenue" aria-label="revenue" type="button">Añadir</button>
-
-        </form>
-      </div>
-    </section> -->
 
 
   </main>

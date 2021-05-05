@@ -10,8 +10,13 @@ const btnModalRevenue = document.getElementById("open_modal_revenue");
 const btnCloseModalRevenue = document.querySelector(
   ".btn__close-mdal--revenue"
 );
+const mountDashboard = document.getElementById("container__dashboard");
+const formSignUp = document.getElementById("form_signup");
+const formLogin = document.getElementById("form_login");
 
-console.log(btnCloseModalRevenue);
+// let users = [];
+
+// console.log(formLogin);
 
 const activeModeDark = () => {
   btnDarkMode.classList.toggle("active__dark-odel");
@@ -31,13 +36,71 @@ const activeModalRevenue = () => {
 btnDarkMode.addEventListener("click", activeModeDark);
 btnSignUp.addEventListener("click", activeModal);
 btnCloseModal.addEventListener("click", activeModal);
-btnModalRevenue.addEventListener("click", activeModalRevenue);
-btnCloseModalRevenue.addEventListener("click", activeModalRevenue);
+// btnModalRevenue.addEventListener("click", activeModalRevenue);
+// btnCloseModalRevenue.addEventListener("click", activeModalRevenue);
 
-const clean = () => {
+const cleanLogin = () => {
   if (true) {
     mountLogin.innerHTML = "";
   }
 };
 
-clean();
+const cleanDasboard = () => {
+  // paint = false;
+  if (mountLogin.innerHTML !== "") {
+    mountDashboard.innerHTML = "";
+  } else {
+    console.log("vacio");
+  }
+};
+cleanDasboard();
+
+const getLocalStorages = () => {
+  if (localStorage.getItem("users")) {
+    users = JSON.parse(localStorage.getItem("users"));
+    // users.push(users);
+    return users;
+  }
+};
+getLocalStorages();
+
+const resetForm = () => {
+  document.getElementById("form_signup").reset();
+};
+
+formSignUp.addEventListener("submit", (e) => {
+  e.preventDefault();
+  let users = [];
+  const register = {
+    email: e.target[0].value,
+    password: e.target[1].value,
+    pais: e.target[2].value,
+  };
+  // console.log(register);
+  users.push(register);
+  localStorage.setItem("users", JSON.stringify(users));
+  resetForm();
+  return users;
+});
+
+const validationUser = (login) => {
+  // debugger;
+  if (users[0].email === login.email && users[0].password === login.password) {
+    // debugger;
+    cleanLogin();
+    // cleanDasboard();
+  } else {
+    console.log("datos invalidos");
+  }
+};
+
+formLogin.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const login = {
+    email: e.target[0].value,
+    password: e.target[1].value,
+  };
+  validationUser(login);
+});
+
+// console.log(users[0].email);

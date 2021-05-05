@@ -46,7 +46,7 @@ body {
         }
 
         & form {
-          & h3,
+          & label,
           input {
             color: $color-light;
           }
@@ -82,7 +82,7 @@ body {
         background-color: $color-dark-mode;
 
         & .btn__close-mdal--revenue,
-        h3,
+        label,
         button {
           color: $color-light;
         }
@@ -166,6 +166,7 @@ main {
       font-weight: 700;
       color: $color-light;
       border-radius: 30px;
+      cursor: pointer;
     }
     & .logo {
       width: 278px;
@@ -178,6 +179,7 @@ main {
 
     & .form-login {
       @extend %form-login;
+      // cursor: pointer;
 
       & input {
         @extend %inputs;
@@ -191,6 +193,7 @@ main {
       & button {
         @extend %btn-login;
         margin-top: $margin-high;
+        cursor: pointer;
       }
     }
   }
@@ -234,6 +237,7 @@ main {
         background-color: $color-secundary;
         font-weight: 700;
         color: $color-light;
+        cursor: pointer;
       }
 
       & h2 {
@@ -247,7 +251,7 @@ main {
           @extend %inputs;
         }
 
-        & h3 {
+        & label {
           @extend %sub-title__form;
           margin-top: $margin-medium;
         }
@@ -308,7 +312,7 @@ main {
       justify-content: center;
       align-items: center;
 
-      & h3 {
+      & label {
         font-size: 2.4rem;
         color: $color-primary;
       }
@@ -448,7 +452,7 @@ main {
     & form {
       @extend %form-login;
 
-      & h3 {
+      & label {
         @extend %sub-title__form;
         font-size: 1.8rem;
       }
