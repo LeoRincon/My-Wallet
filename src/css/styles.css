@@ -11,7 +11,8 @@ main .container-modal .modal h2, main .home-login .title-login {
   align-items: center;
 }
 
-.container-modal__revenue .modal-revenue form input, main .container-modal .modal form input, main .home-login .form-login input {
+.container-modal__revenue .modal-revenue form input,
+.container-modal__revenue .modal-revenue form select, main .container-modal .modal form input, main .home-login .form-login input {
   width: 100%;
   height: 30px;
   margin-top: 15px;
@@ -103,10 +104,56 @@ body.body__dark-model .container-modal__revenue .modal-revenue label,
 body.body__dark-model .container-modal__revenue .modal-revenue button {
   color: #fafafa;
 }
+body.body__dark-model .container-modal__revenue h2 {
+  color: #eea907;
+}
 
 main {
   width: 100vw;
   height: 100vh;
+}
+main .btn__mode-dak {
+  height: 30px;
+  background-color: #343d5b;
+  border-radius: 100px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  position: absolute;
+  margin: 20px;
+}
+main .btn__mode-dak::after {
+  content: "";
+  display: block;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  background-color: #fafafa;
+  top: 0;
+  left: 0;
+  right: unset;
+  border-radius: 50%;
+  transition: 1s ease all;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.2);
+}
+main .btn__mode-dak.active__dark-odel {
+  background-color: orange;
+  color: #131212;
+}
+main .btn__mode-dak.active__dark-odel::after {
+  right: 0;
+  left: unset;
+}
+main .btn__mode-dak span {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  display: block;
+  background-color: none;
+  color: #fafafa;
+}
+main .wrap__home-login {
+  display: none;
 }
 main .home-login {
   width: 100vw;
@@ -122,45 +169,6 @@ main .home-login .nav-login {
   height: 50px;
   transition: 1s ease all;
 }
-main .home-login .nav-login .btn__mode-dak {
-  height: 30px;
-  background-color: #343d5b;
-  border-radius: 100px;
-  border: none;
-  position: relative;
-  cursor: pointer;
-  display: flex;
-}
-main .home-login .nav-login .btn__mode-dak::after {
-  content: "";
-  display: block;
-  width: 30px;
-  height: 30px;
-  position: absolute;
-  background-color: #fafafa;
-  top: 0;
-  left: 0;
-  right: unset;
-  border-radius: 50%;
-  transition: 1s ease all;
-  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.2);
-}
-main .home-login .nav-login .btn__mode-dak.active__dark-odel {
-  background-color: orange;
-  color: #131212;
-}
-main .home-login .nav-login .btn__mode-dak.active__dark-odel::after {
-  right: 0;
-  left: unset;
-}
-main .home-login .nav-login .btn__mode-dak span {
-  width: 30px;
-  height: 30px;
-  line-height: 30px;
-  display: block;
-  background-color: none;
-  color: #fafafa;
-}
 main .home-login .btn__sign-up {
   width: 100px;
   height: 30px;
@@ -171,6 +179,8 @@ main .home-login .btn__sign-up {
   color: #fafafa;
   border-radius: 30px;
   cursor: pointer;
+  align-self: flex-end;
+  margin: 20px;
 }
 main .home-login .logo {
   width: 278px;
@@ -180,7 +190,7 @@ main .home-login .form-login .sub-title__form {
   margin-top: 40px;
 }
 main .home-login .form-login button {
-  margin-top: 40px;
+  margin-top: calc(40px - 10px);
   cursor: pointer;
 }
 main .container-modal.active {
@@ -229,6 +239,10 @@ main .container-modal .modal form button {
   margin-top: calc(40px - 10px);
 }
 
+.wrap__dashboard {
+  display: none;
+}
+
 .home-dashboard {
   width: 100vw;
   height: 100vh;
@@ -239,7 +253,7 @@ main .container-modal .modal form button {
 .home-dashboard .dashboard__header {
   width: 90%;
   height: 60px;
-  margin: 20px 0;
+  margin: 70px 0 30px 0;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -253,7 +267,7 @@ main .container-modal .modal form button {
 .home-dashboard .wrap__card-balance {
   background-color: #fafafa;
   width: 280px;
-  height: 100px;
+  height: 60px;
   border-radius: 20px;
   margin-bottom: 10px;
 }
@@ -263,7 +277,7 @@ main .container-modal .modal form button {
   background-size: cover;
   background-repeat: no-repeat;
   width: 280px;
-  height: 100px;
+  height: 60px;
   border-radius: 20px;
   margin-bottom: 20px;
   display: flex;
@@ -271,7 +285,7 @@ main .container-modal .modal form button {
   justify-content: center;
   align-items: center;
 }
-.home-dashboard .wrap__card-balance .card-balance label {
+.home-dashboard .wrap__card-balance .card-balance h3 {
   font-size: 2.4rem;
   color: #fa4a0c;
 }
@@ -280,39 +294,19 @@ main .container-modal .modal form button {
   font-size: 1.8rem;
   color: #005cee;
 }
-.home-dashboard .container-statistic {
+.home-dashboard .container-revenue {
   width: 80%;
-  height: 280px;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 40px 240px;
-  grid-template-areas: "statistic filtro" "chart chart";
-  justify-content: center;
-  align-items: center;
 }
-.home-dashboard .container-statistic h2 {
+.home-dashboard .container-revenue h2 {
+  margin-top: 20px;
   color: #fa4a0c;
   font-size: 2.2rem;
-  grid-area: statistic;
 }
-.home-dashboard .container-statistic select {
-  width: 90px;
-  height: 25px;
-  border: none;
-  color: #005cee;
-  background-color: transparent;
-  border-radius: 10px;
-  font-weight: 700;
-  font-size: 1.6rem;
-  grid-area: filtro;
-}
-.home-dashboard .container-statistic div {
+.home-dashboard .container-revenue .item-revenue {
   width: 100%;
-  height: 100%;
-  margin-top: 25px;
+  margin-top: 20px;
   box-shadow: 0px 1px 6px 0px #b7b3b3;
   border-radius: 30px;
-  grid-area: chart;
 }
 .home-dashboard .nav {
   width: 100%;
@@ -332,7 +326,7 @@ main .container-modal .modal form button {
 .home-dashboard .nav .icon-history {
   font-size: 3rem;
   color: #fa4a0c;
-  margin-left: 30px;
+  margin-left: cacl(20px10px);
 }
 .home-dashboard .nav button {
   border: none;
@@ -396,7 +390,8 @@ main .container-modal .modal form button {
 .container-modal__revenue .modal-revenue form label {
   font-size: 1.8rem;
 }
-.container-modal__revenue .modal-revenue form input {
+.container-modal__revenue .modal-revenue form input,
+.container-modal__revenue .modal-revenue form select {
   margin: 10px 0;
   font-size: 1.8rem;
 }

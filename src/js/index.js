@@ -10,13 +10,17 @@ const btnModalRevenue = document.getElementById("open_modal_revenue");
 const btnCloseModalRevenue = document.querySelector(
   ".btn__close-mdal--revenue"
 );
-const mountDashboard = document.getElementById("container__dashboard");
 const formSignUp = document.getElementById("form_signup");
 const formLogin = document.getElementById("form_login");
+const formRevenue = document.getElementById("form_revenue");
 
-// let users = [];
+const wrapLogin = document.getElementById("wrap__home-login");
+const wrapDashboard = document.getElementById("wrap_dashboard");
 
-// console.log(formLogin);
+let users = [];
+let revenues = [];
+
+// console.log(formRevenue);
 
 const activeModeDark = () => {
   btnDarkMode.classList.toggle("active__dark-odel");
@@ -36,59 +40,61 @@ const activeModalRevenue = () => {
 btnDarkMode.addEventListener("click", activeModeDark);
 btnSignUp.addEventListener("click", activeModal);
 btnCloseModal.addEventListener("click", activeModal);
-// btnModalRevenue.addEventListener("click", activeModalRevenue);
-// btnCloseModalRevenue.addEventListener("click", activeModalRevenue);
+btnModalRevenue.addEventListener("click", activeModalRevenue);
+btnCloseModalRevenue.addEventListener("click", activeModalRevenue);
 
-const cleanLogin = () => {
-  if (true) {
-    mountLogin.innerHTML = "";
-  }
-};
-
-const cleanDasboard = () => {
-  // paint = false;
-  if (mountLogin.innerHTML !== "") {
-    mountDashboard.innerHTML = "";
-  } else {
-    console.log("vacio");
-  }
-};
-cleanDasboard();
-
-const getLocalStorages = () => {
+// const getLocalStorages = () => {
+//   if (localStorage.getItem("users")) {
+//     users = JSON.parse(localStorage.getItem("users"));
+//     // users.push(users);
+//     return users;
+//   }
+//   if (localStorage.getItem("revenues")) {
+//     revenues = JSON.parse(localStorage.getItem("revenues"));
+//     // paintRevenue(revenue);
+//     return revenue;
+//   }
+// };
+// getLocalStorages();
+document.addEventListener("DOMContentLoaded", (e) => {
   if (localStorage.getItem("users")) {
     users = JSON.parse(localStorage.getItem("users"));
-    // users.push(users);
-    return users;
   }
-};
-getLocalStorages();
+  if (localStorage.getItem("revenues")) {
+    revenues = JSON.parse(localStorage.getItem("revenues"));
+    paintRevenue(revenues);
+  }
+});
 
 const resetForm = () => {
   document.getElementById("form_signup").reset();
 };
+const resetFormRevenue = () => {
+  document.getElementById("form_revenue").reset();
+};
 
 formSignUp.addEventListener("submit", (e) => {
   e.preventDefault();
-  let users = [];
   const register = {
     email: e.target[0].value,
-    password: e.target[1].value,
-    pais: e.target[2].value,
+    username: e.target[1].value,
+    password: e.target[2].value,
   };
-  // console.log(register);
   users.push(register);
   localStorage.setItem("users", JSON.stringify(users));
   resetForm();
-  return users;
 });
 
 const validationUser = (login) => {
   // debugger;
-  if (users[0].email === login.email && users[0].password === login.password) {
-    // debugger;
-    cleanLogin();
-    // cleanDasboard();
+  if (
+    users.some(
+      (users) =>
+        users.email === login.email && users.password === login.password
+    )
+  ) {
+    wrapLogin.classList.toggle("wrap__home-login");
+    wrapDashboard.classList.toggle("wrap__dashboard");
   } else {
     console.log("datos invalidos");
   }
@@ -103,4 +109,40 @@ formLogin.addEventListener("submit", (e) => {
   validationUser(login);
 });
 
-// console.log(users[0].email);
+formRevenue.addEventListener("submit", (e) => {
+  e.preventDefault();
+  // let users = [];
+  const revenue = {
+    tipo: e.target[0].value,
+    category: e.target[1].value,
+    description: e.target[2].value,
+    valor: e.target[3].value,
+  };
+  // console.log(revenue);
+  revenues.push(revenue);
+  localStorage.setItem("revenues", JSON.stringify(revenues));
+  paintRevenue(revenue);
+  resetFormRevenue();
+  // getLocalStorages();
+  // return revenue;
+});
+
+const paintRevenue = (revenues) => {
+  const containerRevenue = document.querySelector(".container-revenue");
+  const nodeRevenue = document.createElement("div");
+  nodeRevenue.classList.add("item-revenue");
+  nodeRevenue.innerHTML = revenues
+    .map((revenue) => {
+      return `
+    <div class="card-revenue">
+      <h3>Tipo: <span>${revenue.tipo}</h3>
+      <h3>Categoria: <span>${revenue.category}</h3>
+      <h3>Descripción: <span>${revenue.description}</h3>
+      <h3>Valor: <span>${revenue.valor}</h3>
+    </div>
+  `;
+    })
+    .join("");
+
+  containerRevenue.appendChild(nodeRevenue);
+};

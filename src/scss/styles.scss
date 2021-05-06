@@ -87,6 +87,9 @@ body {
           color: $color-light;
         }
       }
+      & h2 {
+        color: $color-aux;
+      }
     }
   }
 }
@@ -94,6 +97,55 @@ body {
 main {
   width: 100vw;
   height: 100vh;
+
+  & .btn__mode-dak {
+    height: 30px;
+    background-color: #343d5b;
+    border-radius: 100px;
+    border: none;
+    // position: relative;
+    cursor: pointer;
+    display: flex;
+    position: absolute;
+    margin: $margin-medium;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 30px;
+      height: 30px;
+      position: absolute;
+      background-color: $color-light;
+      top: 0;
+      left: 0;
+      right: unset;
+      border-radius: 50%;
+      transition: 1s ease all;
+      box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.2);
+    }
+
+    &.active__dark-odel {
+      background-color: orange;
+      color: $color-black;
+      &::after {
+        right: 0;
+        left: unset;
+      }
+    }
+
+    & span {
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      display: block;
+      background-color: none;
+      color: $color-light;
+    }
+  }
+
+  & .wrap__home-login {
+    display: none;
+  }
 
   & .home-login {
     width: 100vw;
@@ -111,48 +163,48 @@ main {
       transition: 1s ease all;
       // ----- ------ ----- Styles dark mode----- ---- --
 
-      & .btn__mode-dak {
-        height: 30px;
-        background-color: #343d5b;
-        border-radius: 100px;
-        border: none;
-        position: relative;
-        cursor: pointer;
-        display: flex;
+      // & .btn__mode-dak {
+      //   height: 30px;
+      //   background-color: #343d5b;
+      //   border-radius: 100px;
+      //   border: none;
+      //   position: relative;
+      //   cursor: pointer;
+      //   display: flex;
 
-        &::after {
-          content: "";
-          display: block;
-          width: 30px;
-          height: 30px;
-          position: absolute;
-          background-color: $color-light;
-          top: 0;
-          left: 0;
-          right: unset;
-          border-radius: 50%;
-          transition: 1s ease all;
-          box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.2);
-        }
+      //   &::after {
+      //     content: "";
+      //     display: block;
+      //     width: 30px;
+      //     height: 30px;
+      //     position: absolute;
+      //     background-color: $color-light;
+      //     top: 0;
+      //     left: 0;
+      //     right: unset;
+      //     border-radius: 50%;
+      //     transition: 1s ease all;
+      //     box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.2);
+      //   }
 
-        &.active__dark-odel {
-          background-color: orange;
-          color: $color-black;
-          &::after {
-            right: 0;
-            left: unset;
-          }
-        }
+      //   &.active__dark-odel {
+      //     background-color: orange;
+      //     color: $color-black;
+      //     &::after {
+      //       right: 0;
+      //       left: unset;
+      //     }
+      //   }
 
-        & span {
-          width: 30px;
-          height: 30px;
-          line-height: 30px;
-          display: block;
-          background-color: none;
-          color: $color-light;
-        }
-      }
+      //   & span {
+      //     width: 30px;
+      //     height: 30px;
+      //     line-height: 30px;
+      //     display: block;
+      //     background-color: none;
+      //     color: $color-light;
+      //   }
+      // }
     }
 
     & .btn__sign-up {
@@ -167,6 +219,8 @@ main {
       color: $color-light;
       border-radius: 30px;
       cursor: pointer;
+      align-self: flex-end;
+      margin: $margin-medium;
     }
     & .logo {
       width: 278px;
@@ -192,7 +246,7 @@ main {
 
       & button {
         @extend %btn-login;
-        margin-top: $margin-high;
+        margin-top: calc(#{$margin-high} - 10px);
         cursor: pointer;
       }
     }
@@ -267,6 +321,9 @@ main {
 
 // ******************** Style Dashboard ****************
 
+.wrap__dashboard {
+  display: none;
+}
 .home-dashboard {
   width: 100vw;
   height: 100vh;
@@ -277,7 +334,7 @@ main {
   & .dashboard__header {
     width: 90%;
     height: 60px;
-    margin: 20px 0;
+    margin: 70px 0 30px 0;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -293,7 +350,7 @@ main {
   & .wrap__card-balance {
     background-color: $color-light;
     width: 280px;
-    height: 100px;
+    height: 60px;
     border-radius: 20px;
     margin-bottom: $margin-low;
 
@@ -304,7 +361,7 @@ main {
       background-size: cover;
       background-repeat: no-repeat;
       width: 280px;
-      height: 100px;
+      height: 60px;
       border-radius: 20px;
       margin-bottom: $margin-medium;
       display: flex;
@@ -312,7 +369,7 @@ main {
       justify-content: center;
       align-items: center;
 
-      & label {
+      & h3 {
         font-size: 2.4rem;
         color: $color-primary;
       }
@@ -325,44 +382,32 @@ main {
     }
   }
 
-  & .container-statistic {
+  & .container-revenue {
     width: 80%;
-    height: 280px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 40px 240px;
-    grid-template-areas:
-      "statistic filtro"
-      "chart chart";
-    justify-content: center;
-    align-items: center;
+    // height: 280px;
+    // display: grid;
+    // grid-template-columns: repeat(2, 1fr);
+    // grid-template-rows: 40px 240px;
+    // grid-template-areas:
+    //   "statistic filtro"
+    //   "chart chart";
+    // justify-content: center;
+    // align-items: center;
 
     & h2 {
+      margin-top: $margin-medium;
       color: $color-primary;
       font-size: 2.2rem;
-      grid-area: statistic;
+      // grid-area: statistic;
     }
 
-    & select {
-      // background-color: #343;
-      width: 90px;
-      height: 25px;
-      border: none;
-      color: $color-secundary;
-      background-color: transparent;
-      border-radius: 10px;
-      font-weight: 700;
-      font-size: 1.6rem;
-      grid-area: filtro;
-    }
-
-    & div {
+    & .item-revenue {
       width: 100%;
-      height: 100%;
-      margin-top: 25px;
+      // height: 100%;
+      margin-top: $margin-medium;
       box-shadow: 0px 1px 6px 0px #b7b3b3;
       border-radius: 30px;
-      grid-area: chart;
+      // grid-area: chart;
     }
   }
 
@@ -384,7 +429,7 @@ main {
     & .icon-history {
       font-size: 3rem;
       color: $color-primary;
-      margin-left: 30px;
+      margin-left: cacl(#{$margin-medium} + 10px);
     }
 
     & button {
@@ -457,7 +502,8 @@ main {
         font-size: 1.8rem;
       }
 
-      & input {
+      & input,
+      select {
         @extend %inputs;
         margin: $margin-low 0;
         font-size: 1.8rem;

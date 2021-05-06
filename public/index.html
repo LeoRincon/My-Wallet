@@ -17,59 +17,66 @@
 <body class="">
 
   <main class="container__app">
-
-    <section class="home-login">
-      <nav tabindex="0" aria-label="Navegation" class="nav-login">
-        <button aria-label="Boton dark model" tabindex="0" class="btn__mode-dak" id="mode-dark">
-          <span><i class="fas fa-sun"></i></span>
-          <span><i class="fas fa-moon"></i></span>
-        </button>
+    <button aria-label="Boton dark model" tabindex="0" class="btn__mode-dak" id="mode-dark">
+      <span><i class="fas fa-sun"></i></span>
+      <span><i class="fas fa-moon"></i></span>
+    </button>
+    <section id="wrap__home-login" class="">
+      <section class="home-login">
+        <!-- <nav tabindex="0" aria-label="Navegation" class="nav-login"> -->
+        <!-- <button aria-label="Boton dark model" tabindex="0" class="btn__mode-dak" id="mode-dark">
+            <span><i class="fas fa-sun"></i></span>
+            <span><i class="fas fa-moon"></i></span>
+          </button> -->
 
         <button class="btn__sign-up" id="signup" type="button">Sign Up</button>
-      </nav>
+        <!-- </nav> -->
 
 
-      <figuret class="logo">
-        <img tabindex="0" src="../src/img/logo.svg" alt="Logo de la aplicación">
-      </figuret>
+        <figuret class="logo">
+          <img tabindex="0" src="../src/img/logo.svg" alt="Logo de la aplicación">
+        </figuret>
 
-      <h2 class="title-login" tabindex="0">Login</h2>
+        <h2 class="title-login" tabindex="0">Login</h2>
 
-      <form id="form_login" class="form-login" action="login">
-        <label class="sub-title__form">Email o Username </label>
-        <input name="email" type="text" aria-label="Email o Username" placeholder="example@example">
-        <label class="sub-title__form">Password</label>
-        <input name="password" type="password" aria-label="Password" placeholder="password">
-        <button aria-label="login" type="submit">Login</button>
-      </form>
-      <section class="container-modal active">
-        <div tabindex="0" class="modal modal-active">
-          <button id="modal-close" class="modal-close">X</button>
-          <img tabindex="0" src="../src/img/icon-signup.svg" alt="Icono de Sing Up">
-          <h2 tabindex="0" class="modal__title">Sing Up</h2>
+        <form id="form_login" class="form-login" action="login">
+          <label class="sub-title__form">Email o Username </label>
+          <input name="email" type="text" aria-label="Email o Username" placeholder="example@example">
+          <label class="sub-title__form">Password</label>
+          <input name="password" type="password" aria-label="Password" placeholder="password">
+          <button aria-label="login" type="submit">Login</button>
+        </form>
 
-          <form id="form_signup" action="singup" class="modal__form-singup">
+        <!-- ------- ---- -------- Modal Sign Up ---------- -->
 
-            <label>Email </label>
-            <input name="email" type="text" aria-label="ingrese su email" placeholder="example@example">
-            <label>Password</label>
-            <input name="password" type="password" aria-label="Ingrese su password" placeholder="password">
-            <label>Pais</label>
-            <input name="pais" type="text" aria-label="Ingrese su Pais" placeholder="Pais">
-            <button class="btn__sign-up" aria-label="login" type="submit">Sign Up</button>
+        <section class="container-modal active">
+          <div tabindex="0" class="modal modal-active">
+            <button id="modal-close" class="modal-close">X</button>
+            <img tabindex="0" src="../src/img/icon-signup.svg" alt="Icono de Sing Up">
+            <h2 tabindex="0" class="modal__title">Sing Up</h2>
 
-          </form>
+            <form id="form_signup" action="singup" class="modal__form-singup">
 
-        </div>
+              <label>Email </label>
+              <input name="email" type="text" aria-label="ingrese su email" placeholder="example@example">
+              <label>Username</label>
+              <input name="pais" type="text" aria-label="Ingrese su Pais" placeholder="Username">
+              <label>Password</label>
+              <input name="password" type="password" aria-label="Ingrese su password" placeholder="password">
+              <button class="btn__sign-up" aria-label="login" type="submit">Sign Up</button>
+
+            </form>
+
+          </div>
+
+        </section>
 
       </section>
-      <!-- ------- ---- -------- Modal Sign Up ---------- -->
-
     </section>
 
     <!-- *********** Dashboard  -->
     <!-- <template> -->
-    <div id="container__dashboard">
+    <section id="wrap_dashboard" class="wrap__dashboard">
       <section class="home-dashboard" id="home_dashboard">
         <div class="dashboard__header">
           <h2 class="name-user">
@@ -84,7 +91,12 @@
             <h4>$ <span>40.000</span></h4>
           </div>
         </div>
-        <section class="container-statistic">
+        <section class="container-revenue">
+          <h2>Ingresos / Gastos:</h2>
+
+
+        </section>
+        <!-- <section class="container-statistic">
           <h2>Statistic:</h2>
           <select name="time-statistic" id="statistic">
             <option value="Semanal">Semanal</option>
@@ -92,7 +104,7 @@
           </select>
           <div class="paint-statistic">
           </div>
-        </section>
+        </section> -->
 
         <nav class="nav">
           <i class="fas fa-home icon-home"></i>
@@ -105,21 +117,33 @@
           <div class="modal-revenue">
             <button class="btn__close-mdal--revenue">X</button>
             <h2>Añadir ingreso / Gasto</h2>
-            <form action="revenue">
+            <form id="form_revenue" action="revenue">
+              <label>Tipo</label>
+              <select type="text" aria-label="ingrese su tipo " placeholder="categoria: 'hogar'">
+                <option value="ingreso">Ingreso</option>
+                <option value="gasto">Gasto</option>
+              </select>
               <label>Categoria</label>
-              <input type="text" aria-label="ingrese su categoria" placeholder="categoria: 'hogar'">
+              <select type="text" aria-label="ingrese su categoria" placeholder="categoria: 'hogar'">
+                <option value="Hogar">Hogar</option>
+                <option value="Hobby">Hobby</option>
+                <option value="Transporte">Transporte</option>
+                <option value="Alimentacion">Alimentacion</option>
+                <option value="Otros">Otros</option>
+              </select>
               <label>Descripción</label>
               <input type="text" aria-label="ingrese su description" placeholder="pago de renta">
               <label>Valor</label>
               <input type="number" aria-label="ingrese su valor" placeholder="$500">
-              <button class="btn__add-revenue" aria-label="revenue" type="button">Añadir</button>
+
+              <button class="btn__add-revenue" aria-label="revenue" type="submit">Añadir</button>
 
             </form>
           </div>
         </section>
 
       </section>
-    </div>
+    </section>
     <!-- </template> -->
 
 
