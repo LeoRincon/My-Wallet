@@ -13,6 +13,14 @@ const btnCloseModalRevenue = document.querySelector(
 const formSignUp = document.getElementById("form_signup");
 const formLogin = document.getElementById("form_login");
 const formRevenue = document.getElementById("form_revenue");
+const btnModalChart = document.querySelector(".icon-chart");
+const btnCloseModalChart = document.querySelector(
+  ".btn-close__modal-statistic"
+);
+
+const containerModalChart = document.querySelector(".container-statistic");
+
+// console.log(btnCloseModalChart);
 
 const wrapLogin = document.getElementById("wrap__home-login");
 const wrapDashboard = document.getElementById("wrap_dashboard");
@@ -35,11 +43,17 @@ const activeModalRevenue = () => {
   modalRevenue.classList.toggle("revenue-active");
 };
 
+const toggleModalChart = () => {
+  containerModalChart.classList.toggle("container-statistic--active");
+};
+
 btnDarkMode.addEventListener("click", activeModeDark);
 btnSignUp.addEventListener("click", activeModal);
 btnCloseModal.addEventListener("click", activeModal);
 btnModalRevenue.addEventListener("click", activeModalRevenue);
 btnCloseModalRevenue.addEventListener("click", activeModalRevenue);
+btnModalChart.addEventListener("click", toggleModalChart);
+btnCloseModalChart.addEventListener("click", toggleModalChart);
 
 document.addEventListener("DOMContentLoaded", (e) => {
   if (localStorage.getItem("users")) {
@@ -107,7 +121,7 @@ formRevenue.addEventListener("submit", (e) => {
     fecha: e.target[4].value,
   };
   revenues.push(revenue);
-  console.log(revenue);
+  // console.log(revenue);
 
   localStorage.setItem("revenues", JSON.stringify(revenues));
   paintRevenue(revenues);
@@ -140,9 +154,128 @@ const paintRevenue = (revenues) => {
   containerRevenue.innerHTML = nodeRevenue;
 };
 
+const number = (number) => parseInt(number);
+
 const fn = (tipo) => (tipo === "Ingreso" ? "Ingreso" : "Gasto");
 
-// setTimeout(() => {
-//   const revenueTipo = document.querySelector(".card-revenue--tipo");
-//   console.log(revenueTipo);
-// }, 5000);
+// ******************* Code Chart
+
+let canvas = document.getElementById("chart").getContext("2d");
+// let canvas2 = document.getElementById("chart2").getContext("2d");
+// const paintStatistic = document.querySelector(".paint-statistic");
+
+const data = {
+  labels: ["Gastor", "Ingresos"],
+  datasets: [
+    {
+      label: "My First Dataset",
+      data: [300, 1000],
+      backgroundColor: [
+        "rgb(255, 99, 132)",
+        "rgb(54, 162, 235)",
+        // "rgb(255, 205, 86)",
+      ],
+      hoverOffset: 4,
+    },
+  ],
+};
+const config = {
+  type: "doughnut",
+  data: data,
+  options: {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: "top",
+      },
+      title: {
+        display: true,
+        // text: "Chart.js Doughnut Chart",
+      },
+    },
+  },
+};
+
+let chart = new Chart(canvas, config);
+
+// const filter = document.querySelector(".modal__statistic");
+
+// filter.addEventListener("change", (e) => {
+//   // console.log(e.target.value);
+//   if (e.target.value === "Mensual") {
+//     // paintStatistic.innerHTML = "";
+//     const refresh = document.getElementById("chart");
+//     refresh.classList.toggle("chart-week");
+//     const data = {
+//       labels: ["Gastor", "Ingresos"],
+//       datasets: [
+//         {
+//           label: "My First Dataset",
+//           data: [300, 1000],
+//           backgroundColor: [
+//             "rgb(255, 99, 132)",
+//             "rgb(54, 162, 235)",
+//             // "rgb(255, 205, 86)",
+//           ],
+//           hoverOffset: 4,
+//         },
+//       ],
+//     };
+//     const config = {
+//       type: "doughnut",
+//       data: data,
+//       options: {
+//         responsive: true,
+//         plugins: {
+//           legend: {
+//             position: "top",
+//           },
+//           title: {
+//             display: true,
+//             // text: "Chart.js Doughnut Chart",
+//           },
+//         },
+//       },
+//     };
+
+//     let chart2 = new Chart(canvas2, config);
+//   }
+
+//   if (e.target.value === "Semanal") {
+//     const refreh2 = document.getElementById("chart2");
+//     refreh2.classList.toggle("chart-month");
+//     const data = {
+//       labels: ["Gastor", "Ingresos"],
+//       datasets: [
+//         {
+//           label: "My First Dataset",
+//           data: [300, 1000],
+//           backgroundColor: [
+//             "rgb(255, 99, 132)",
+//             "rgb(54, 162, 235)",
+//             // "rgb(255, 205, 86)",
+//           ],
+//           hoverOffset: 4,
+//         },
+//       ],
+//     };
+//     const config = {
+//       type: "doughnut",
+//       data: data,
+//       options: {
+//         responsive: true,
+//         plugins: {
+//           legend: {
+//             position: "top",
+//           },
+//           title: {
+//             display: true,
+//             // text: "Chart.js Doughnut Chart",
+//           },
+//         },
+//       },
+//     };
+
+//     let chart = new Chart(canvas, config);
+//   }
+// });

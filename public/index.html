@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Wallet</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.1.1/dist/chart.min.js"></script>
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/b4c36c288f.js" crossorigin="anonymous"></script>
@@ -63,7 +64,7 @@
               <input name="pais" type="text" aria-label="Ingrese su Pais" placeholder="Username">
               <label>Password</label>
               <input name="password" type="password" aria-label="Ingrese su password" placeholder="password">
-              <button class="btn__sign-up" aria-label="login" type="submit">Sign Up</button>
+              <button class="btn__signup" aria-label="login" type="submit">Sign Up</button>
 
             </form>
 
@@ -98,19 +99,23 @@
           </div>
 
         </section>
-        <!-- <section class="container-statistic">
-          <h2>Statistic:</h2>
-          <select name="time-statistic" id="statistic">
-            <option value="Semanal">Semanal</option>
-            <option value="Mensual">Mensual</option>
-          </select>
-          <div class="paint-statistic">
+        <section class="container-statistic">
+          <div class="modal__statistic">
+            <button class="btn-close__modal-statistic">X</button>
+            <h2>Statistic:</h2>
+            <select name="time-statistic" id="statistic">
+              <option value="Semanal">Semanal</option>
+              <option value="Mensual">Mensual</option>
+            </select>
+            <div class="paint-statistic">
+              <canvas id="chart"></canvas>
+            </div>
           </div>
-        </section> -->
+        </section>
 
         <nav class="nav">
           <i class="fas fa-home icon-home"></i>
-          <i class="fas fa-history icon-history"></i>
+          <i class="fas fa-chart-bar icon-chart"></i>
           <button id="open_modal_revenue">+</button>
         </nav>
 

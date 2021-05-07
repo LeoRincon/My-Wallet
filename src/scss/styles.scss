@@ -169,50 +169,6 @@ main {
       height: 50px;
       // margin-bottom: $margin-medium;
       transition: 1s ease all;
-      // ----- ------ ----- Styles dark mode----- ---- --
-
-      // & .btn__mode-dak {
-      //   height: 30px;
-      //   background-color: #343d5b;
-      //   border-radius: 100px;
-      //   border: none;
-      //   position: relative;
-      //   cursor: pointer;
-      //   display: flex;
-
-      //   &::after {
-      //     content: "";
-      //     display: block;
-      //     width: 30px;
-      //     height: 30px;
-      //     position: absolute;
-      //     background-color: $color-light;
-      //     top: 0;
-      //     left: 0;
-      //     right: unset;
-      //     border-radius: 50%;
-      //     transition: 1s ease all;
-      //     box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.2);
-      //   }
-
-      //   &.active__dark-odel {
-      //     background-color: orange;
-      //     color: $color-black;
-      //     &::after {
-      //       right: 0;
-      //       left: unset;
-      //     }
-      //   }
-
-      //   & span {
-      //     width: 30px;
-      //     height: 30px;
-      //     line-height: 30px;
-      //     display: block;
-      //     background-color: none;
-      //     color: $color-light;
-      //   }
-      // }
     }
 
     & .btn__sign-up {
@@ -254,7 +210,7 @@ main {
 
       & button {
         @extend %btn-login;
-        margin-top: calc(#{$margin-high} - 10px);
+        margin-top: $margin-medium;
         cursor: pointer;
       }
     }
@@ -462,7 +418,7 @@ main {
       color: $color-primary;
       margin-right: 30px;
     }
-    & .icon-history {
+    & .icon-chart {
       font-size: 3rem;
       color: $color-primary;
       margin-left: cacl(#{$margin-medium} + 10px);
@@ -480,6 +436,68 @@ main {
       position: fixed;
       bottom: 5px;
     }
+  }
+
+  & .container-statistic {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    background-color: rgba(215, 215, 215, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(-600px);
+    visibility: hidden;
+
+    & .modal__statistic {
+      width: 80%;
+      height: 80%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      background-color: $color-light;
+      border-radius: 20px;
+
+      & #chart {
+        width: 280px !important;
+        height: 280px !important;
+      }
+
+      & .btn-close__modal-statistic {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        border: none;
+        border-radius: 50%;
+        background-color: $color-primary;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        font-size: 2rem;
+        font-weight: 700;
+      }
+
+      & h2 {
+        @extend %title-login;
+        color: $color-primary;
+        margin-top: calc(#{$margin-high} + 10px);
+      }
+
+      & select {
+        border: none;
+        background-color: transparent;
+        margin: $margin-medium;
+        color: $color-secundary;
+        font-size: 2rem;
+        font-weight: 500;
+      }
+    }
+  }
+
+  & .container-statistic.container-statistic--active {
+    transform: translateY(0);
+    visibility: visible;
   }
 }
 
@@ -501,7 +519,7 @@ main {
 
   & .modal-revenue {
     width: 85%;
-    height: 80%;
+    height: 95%;
     background-color: $color-light;
     border-radius: 20px;
     display: flex;
@@ -524,7 +542,8 @@ main {
       color: $color-black;
     }
     & h2 {
-      margin: calc(#{$margin-high} + 5px) 0;
+      margin-top: calc(#{$margin-high} + 5px);
+      margin-bottom: $margin-medium;
       font-size: 2.4rem;
       font-weight: 700;
       color: $color-secundary;
@@ -536,18 +555,21 @@ main {
       & label {
         @extend %sub-title__form;
         font-size: 1.8rem;
+        margin-top: $margin-low;
+        // margin-bottom: $margin-low;
       }
 
       & input,
       select {
         @extend %inputs;
-        margin: $margin-low 0;
+        margin-top: $margin-low;
         font-size: 1.8rem;
+        opacity: 0.8;
       }
 
       & button {
         @extend %btn-login;
-        margin-top: calc(#{$margin-high} - 10px);
+        margin-top: calc(#{$margin-high} - 15px);
       }
     }
   }

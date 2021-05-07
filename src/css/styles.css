@@ -1,6 +1,5 @@
-main .container-modal .modal h2, main .home-login .title-login {
-  text-decoration: none;
-  font-size: 2.4rem;
+.home-dashboard .container-statistic .modal__statistic h2, main .container-modal .modal h2, main .home-login .title-login {
+  font-size: 2.8rem;
   color: #131212;
 }
 
@@ -193,7 +192,7 @@ main .home-login .form-login .sub-title__form {
   margin-top: 40px;
 }
 main .home-login .form-login button {
-  margin-top: calc(40px - 10px);
+  margin-top: 20px;
   cursor: pointer;
 }
 main .container-modal.active {
@@ -347,7 +346,7 @@ main .container-modal .modal form button {
   color: #fa4a0c;
   margin-right: 30px;
 }
-.home-dashboard .nav .icon-history {
+.home-dashboard .nav .icon-chart {
   font-size: 3rem;
   color: #fa4a0c;
   margin-left: cacl(20px10px);
@@ -363,6 +362,60 @@ main .container-modal .modal form button {
   border-radius: 50%;
   position: fixed;
   bottom: 5px;
+}
+.home-dashboard .container-statistic {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  background-color: rgba(215, 215, 215, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(-600px);
+  visibility: hidden;
+}
+.home-dashboard .container-statistic .modal__statistic {
+  width: 80%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  background-color: #fafafa;
+  border-radius: 20px;
+}
+.home-dashboard .container-statistic .modal__statistic #chart {
+  width: 280px !important;
+  height: 280px !important;
+}
+.home-dashboard .container-statistic .modal__statistic .btn-close__modal-statistic {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  border: none;
+  border-radius: 50%;
+  background-color: #fa4a0c;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  font-size: 2rem;
+  font-weight: 700;
+}
+.home-dashboard .container-statistic .modal__statistic h2 {
+  color: #fa4a0c;
+  margin-top: calc(40px + 10px);
+}
+.home-dashboard .container-statistic .modal__statistic select {
+  border: none;
+  background-color: transparent;
+  margin: 20px;
+  color: #005cee;
+  font-size: 2rem;
+  font-weight: 500;
+}
+.home-dashboard .container-statistic.container-statistic--active {
+  transform: translateY(0);
+  visibility: visible;
 }
 
 .container-modal__revenue.revenue-active {
@@ -384,7 +437,7 @@ main .container-modal .modal form button {
 }
 .container-modal__revenue .modal-revenue {
   width: 85%;
-  height: 80%;
+  height: 95%;
   background-color: #fafafa;
   border-radius: 20px;
   display: flex;
@@ -406,21 +459,24 @@ main .container-modal .modal form button {
   color: #131212;
 }
 .container-modal__revenue .modal-revenue h2 {
-  margin: calc(40px + 5px) 0;
+  margin-top: calc(40px + 5px);
+  margin-bottom: 20px;
   font-size: 2.4rem;
   font-weight: 700;
   color: #005cee;
 }
 .container-modal__revenue .modal-revenue form label {
   font-size: 1.8rem;
+  margin-top: 10px;
 }
 .container-modal__revenue .modal-revenue form input,
 .container-modal__revenue .modal-revenue form select {
-  margin: 10px 0;
+  margin-top: 10px;
   font-size: 1.8rem;
+  opacity: 0.8;
 }
 .container-modal__revenue .modal-revenue form button {
-  margin-top: calc(40px - 10px);
+  margin-top: calc(40px - 15px);
 }
 
 /*# sourceMappingURL=styles.css.map */
