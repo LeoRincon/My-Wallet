@@ -19,8 +19,7 @@ const wrapDashboard = document.getElementById("wrap_dashboard");
 
 let users = [];
 let revenues = [];
-
-// console.log(formRevenue);
+let revenueTipo;
 
 const activeModeDark = () => {
   btnDarkMode.classList.toggle("active__dark-odel");
@@ -34,7 +33,6 @@ const activeModal = () => {
 
 const activeModalRevenue = () => {
   modalRevenue.classList.toggle("revenue-active");
-  // console.log("click");
 };
 
 btnDarkMode.addEventListener("click", activeModeDark);
@@ -43,19 +41,6 @@ btnCloseModal.addEventListener("click", activeModal);
 btnModalRevenue.addEventListener("click", activeModalRevenue);
 btnCloseModalRevenue.addEventListener("click", activeModalRevenue);
 
-// const getLocalStorages = () => {
-//   if (localStorage.getItem("users")) {
-//     users = JSON.parse(localStorage.getItem("users"));
-//     // users.push(users);
-//     return users;
-//   }
-//   if (localStorage.getItem("revenues")) {
-//     revenues = JSON.parse(localStorage.getItem("revenues"));
-//     // paintRevenue(revenue);
-//     return revenue;
-//   }
-// };
-// getLocalStorages();
 document.addEventListener("DOMContentLoaded", (e) => {
   if (localStorage.getItem("users")) {
     users = JSON.parse(localStorage.getItem("users"));
@@ -64,6 +49,10 @@ document.addEventListener("DOMContentLoaded", (e) => {
     revenues = JSON.parse(localStorage.getItem("revenues"));
     paintRevenue(revenues);
   }
+
+  // revenueTipo = document.querySelectorAll(".card-revenue--tipo");
+  // console.log(revenueTipo);
+  // fn();
 });
 
 const resetForm = () => {
@@ -86,7 +75,6 @@ formSignUp.addEventListener("submit", (e) => {
 });
 
 const validationUser = (login) => {
-  // debugger;
   if (
     users.some(
       (users) =>
@@ -111,38 +99,50 @@ formLogin.addEventListener("submit", (e) => {
 
 formRevenue.addEventListener("submit", (e) => {
   e.preventDefault();
-  // let users = [];
   const revenue = {
     tipo: e.target[0].value,
     category: e.target[1].value,
     description: e.target[2].value,
     valor: e.target[3].value,
+    fecha: e.target[4].value,
   };
-  // console.log(revenue);
   revenues.push(revenue);
+  console.log(revenue);
+
   localStorage.setItem("revenues", JSON.stringify(revenues));
-  paintRevenue(revenue);
+  paintRevenue(revenues);
   resetFormRevenue();
-  // getLocalStorages();
-  // return revenue;
 });
 
 const paintRevenue = (revenues) => {
-  const containerRevenue = document.querySelector(".container-revenue");
-  const nodeRevenue = document.createElement("div");
-  nodeRevenue.classList.add("item-revenue");
-  nodeRevenue.innerHTML = revenues
+  const containerRevenue = document.querySelector(".item-revenue");
+  // let nodeRevenue = document.createElement("div");
+  // nodeRevenue.classList.add("item-revenue");
+  let nodeRevenue = revenues
     .map((revenue) => {
       return `
     <div class="card-revenue">
-      <h3>Tipo: <span>${revenue.tipo}</h3>
-      <h3>Categoria: <span>${revenue.category}</h3>
-      <h3>Descripción: <span>${revenue.description}</h3>
-      <h3>Valor: <span>${revenue.valor}</h3>
+      <h3>Tipo: <span class="card-revenue--tipo ${fn(revenue.tipo)}">${
+        revenue.tipo
+      }</span></h3>
+      <h3>Categoria: <span class="card-revenue--category">${
+        revenue.category
+      }</span></h3>
+      <h3>Descripción: <span class="card-revenue--description">${
+        revenue.description
+      }</span></h3>
+      <h3>Valor: <span class="card-revenue--value">${revenue.valor}</span></h3>
     </div>
   `;
     })
     .join("");
 
-  containerRevenue.appendChild(nodeRevenue);
+  containerRevenue.innerHTML = nodeRevenue;
 };
+
+const fn = (tipo) => (tipo === "Ingreso" ? "Ingreso" : "Gasto");
+
+// setTimeout(() => {
+//   const revenueTipo = document.querySelector(".card-revenue--tipo");
+//   console.log(revenueTipo);
+// }, 5000);

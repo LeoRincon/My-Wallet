@@ -73,6 +73,14 @@ body {
       & select {
         background-color: #fee9b0;
       }
+
+      & .container-revenue {
+        & .item-revenue {
+          & .card-revenue h3 {
+            color: $color-light;
+          }
+        }
+      }
     }
 
     & .container-modal__revenue {
@@ -403,11 +411,39 @@ main {
 
     & .item-revenue {
       width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      // align-items: center;
       // height: 100%;
       margin-top: $margin-medium;
-      box-shadow: 0px 1px 6px 0px #b7b3b3;
+      // box-shadow: 0px 1px 6px 0px #b7b3b3;
       border-radius: 30px;
+      margin-bottom: calc(#{$margin-high} * 2);
       // grid-area: chart;
+
+      & .card-revenue {
+        margin-top: $margin-medium;
+        margin-bottom: $margin-low;
+        padding: 20px;
+        // border: solid 1px black;
+        width: 70%;
+        border-radius: 20px;
+        box-shadow: 0px 1px 6px 0px #b7b3b3;
+
+        & h3 {
+          font-size: 1.4rem;
+          color: $color-black;
+
+          & .Ingreso {
+            color: $color-secundary;
+          }
+
+          & .Gasto {
+            color: $color-primary;
+          }
+        }
+      }
     }
   }
 

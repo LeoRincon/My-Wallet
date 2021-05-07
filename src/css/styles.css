@@ -93,6 +93,9 @@ body.body__dark-model .home-dashboard .dashboard__header {
 body.body__dark-model .home-dashboard select {
   background-color: #fee9b0;
 }
+body.body__dark-model .home-dashboard .container-revenue .item-revenue .card-revenue h3 {
+  color: #fafafa;
+}
 body.body__dark-model .container-modal__revenue {
   background-color: rgba(0, 0, 0, 0.8);
 }
@@ -304,9 +307,30 @@ main .container-modal .modal form button {
 }
 .home-dashboard .container-revenue .item-revenue {
   width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   margin-top: 20px;
-  box-shadow: 0px 1px 6px 0px #b7b3b3;
   border-radius: 30px;
+  margin-bottom: calc(40px * 2);
+}
+.home-dashboard .container-revenue .item-revenue .card-revenue {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  padding: 20px;
+  width: 70%;
+  border-radius: 20px;
+  box-shadow: 0px 1px 6px 0px #b7b3b3;
+}
+.home-dashboard .container-revenue .item-revenue .card-revenue h3 {
+  font-size: 1.4rem;
+  color: #131212;
+}
+.home-dashboard .container-revenue .item-revenue .card-revenue h3 .Ingreso {
+  color: #005cee;
+}
+.home-dashboard .container-revenue .item-revenue .card-revenue h3 .Gasto {
+  color: #fa4a0c;
 }
 .home-dashboard .nav {
   width: 100%;
