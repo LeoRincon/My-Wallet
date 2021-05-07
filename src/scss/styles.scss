@@ -12,8 +12,6 @@ html {
 }
 
 body {
-  // font-family: "Roboto", sans-serif;
-
   // **************** Styles dark mode *******************
 
   &.body__dark-model {
@@ -57,10 +55,6 @@ body {
       .btn__sign-up {
         color: $color-light;
       }
-
-      // .btn__sign-up {
-      //   color: $color-light;
-      // }
     }
 
     & .home-dashboard {
@@ -167,16 +161,13 @@ main {
       align-items: center;
       width: 90%;
       height: 50px;
-      // margin-bottom: $margin-medium;
       transition: 1s ease all;
     }
 
     & .btn__sign-up {
       width: 100px;
       height: 30px;
-      // margin: 15px;
       border: none;
-      // align-self: flex-end;
       background-color: $color-secundary;
       font-size: 1.6rem;
       font-weight: 700;
@@ -197,7 +188,6 @@ main {
 
     & .form-login {
       @extend %form-login;
-      // cursor: pointer;
 
       & input {
         @extend %inputs;
@@ -242,7 +232,6 @@ main {
       flex-direction: column;
       align-items: center;
       border-radius: 20px;
-      // transform: translateY(0px);
 
       & .modal-close {
         position: absolute;
@@ -319,7 +308,6 @@ main {
     margin-bottom: $margin-low;
 
     & .card-balance {
-      // background-color: #343d5b;
       background-image: url("../img/card-statistical.svg");
       background-position: center;
       background-size: cover;
@@ -348,21 +336,11 @@ main {
 
   & .container-revenue {
     width: 80%;
-    // height: 280px;
-    // display: grid;
-    // grid-template-columns: repeat(2, 1fr);
-    // grid-template-rows: 40px 240px;
-    // grid-template-areas:
-    //   "statistic filtro"
-    //   "chart chart";
-    // justify-content: center;
-    // align-items: center;
 
     & h2 {
       margin-top: $margin-medium;
       color: $color-primary;
       font-size: 2.2rem;
-      // grid-area: statistic;
     }
 
     & .item-revenue {
@@ -370,19 +348,14 @@ main {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      // align-items: center;
-      // height: 100%;
       margin-top: $margin-medium;
-      // box-shadow: 0px 1px 6px 0px #b7b3b3;
       border-radius: 30px;
       margin-bottom: calc(#{$margin-high} * 2);
-      // grid-area: chart;
 
       & .card-revenue {
         margin-top: $margin-medium;
         margin-bottom: $margin-low;
         padding: 20px;
-        // border: solid 1px black;
         width: 70%;
         border-radius: 20px;
         box-shadow: 0px 1px 6px 0px #b7b3b3;
@@ -526,7 +499,6 @@ main {
     flex-direction: column;
     align-items: center;
     position: relative;
-    // justify-content: center;
 
     & .btn__close-mdal--revenue {
       position: absolute;
@@ -556,7 +528,6 @@ main {
         @extend %sub-title__form;
         font-size: 1.8rem;
         margin-top: $margin-low;
-        // margin-bottom: $margin-low;
       }
 
       & input,

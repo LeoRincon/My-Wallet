@@ -20,14 +20,15 @@ const btnCloseModalChart = document.querySelector(
 
 const containerModalChart = document.querySelector(".container-statistic");
 
-// console.log(btnCloseModalChart);
-
 const wrapLogin = document.getElementById("wrap__home-login");
 const wrapDashboard = document.getElementById("wrap_dashboard");
 
 let users = [];
 let revenues = [];
 let revenueTipo;
+let totalIncome = 0;
+let totalExpenses = 0;
+let chart;
 
 const activeModeDark = () => {
   btnDarkMode.classList.toggle("active__dark-odel");
@@ -63,10 +64,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
     revenues = JSON.parse(localStorage.getItem("revenues"));
     paintRevenue(revenues);
   }
-
-  // revenueTipo = document.querySelectorAll(".card-revenue--tipo");
-  // console.log(revenueTipo);
-  // fn();
 });
 
 const resetForm = () => {
@@ -100,6 +97,11 @@ const validationUser = (login) => {
   } else {
     console.log("datos invalidos");
   }
+
+  if (localStorage.getItem("revenues")) {
+    revenues = JSON.parse(localStorage.getItem("revenues"));
+    filterRevenue(revenues);
+  }
 };
 
 formLogin.addEventListener("submit", (e) => {
@@ -121,17 +123,15 @@ formRevenue.addEventListener("submit", (e) => {
     fecha: e.target[4].value,
   };
   revenues.push(revenue);
-  // console.log(revenue);
 
   localStorage.setItem("revenues", JSON.stringify(revenues));
   paintRevenue(revenues);
+  filterRevenue(revenues);
   resetFormRevenue();
 });
 
 const paintRevenue = (revenues) => {
   const containerRevenue = document.querySelector(".item-revenue");
-  // let nodeRevenue = document.createElement("div");
-  // nodeRevenue.classList.add("item-revenue");
   let nodeRevenue = revenues
     .map((revenue) => {
       return `
@@ -158,124 +158,70 @@ const number = (number) => parseInt(number);
 
 const fn = (tipo) => (tipo === "Ingreso" ? "Ingreso" : "Gasto");
 
-// ******************* Code Chart
+const filterRevenue = (revuenues) => {
+  totalIncome = 0;
+  totalExpenses = 0;
+  const filteredIngresos = revuenues
+    .filter((revenue) => revenue.tipo === "Ingreso")
+    .map((revenue) => revenue.valor);
 
-let canvas = document.getElementById("chart").getContext("2d");
-// let canvas2 = document.getElementById("chart2").getContext("2d");
-// const paintStatistic = document.querySelector(".paint-statistic");
+  const filteredGastos = revuenues
+    .filter((revenue) => revenue.tipo === "Gasto")
+    .map((revenue) => revenue.valor);
 
-const data = {
-  labels: ["Gastor", "Ingresos"],
-  datasets: [
-    {
-      label: "My First Dataset",
-      data: [300, 1000],
-      backgroundColor: [
-        "rgb(255, 99, 132)",
-        "rgb(54, 162, 235)",
-        // "rgb(255, 205, 86)",
-      ],
-      hoverOffset: 4,
-    },
-  ],
-};
-const config = {
-  type: "doughnut",
-  data: data,
-  options: {
-    responsive: true,
-    plugins: {
-      legend: {
-        position: "top",
+  const sumIncomes = (arrayOfIncomes) => {
+    arrayOfIncomes.map((income) => {
+      const parsedIncome = parseInt(income);
+      totalIncome = parsedIncome + totalIncome;
+    });
+    console.log("totalIncome", totalIncome);
+  };
+
+  const sumExpenses = (arrayOfExpenses) => {
+    arrayOfExpenses.map((expense) => {
+      const parsedExpense = parseInt(expense);
+      totalExpenses = parsedExpense + totalExpenses;
+    });
+    console.log("totalExpense", totalExpenses);
+  };
+
+  sumIncomes(filteredIngresos);
+  sumExpenses(filteredGastos);
+
+  // ******************* Code Chart ******************************
+
+  if (chart !== undefined) {
+    chart.destroy();
+  }
+
+  let canvas = document.getElementById("chart").getContext("2d");
+
+  const data = {
+    labels: ["Gastos", "Ingresos"],
+    datasets: [
+      {
+        label: "My First Dataset",
+        data: [totalExpenses, totalIncome],
+        backgroundColor: ["rgb(255, 99, 132)", "rgb(54, 162, 235)"],
+        hoverOffset: 4,
       },
-      title: {
-        display: true,
-        // text: "Chart.js Doughnut Chart",
+    ],
+  };
+  const config = {
+    type: "doughnut",
+    data: data,
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: "top",
+        },
+        title: {
+          display: true,
+        },
       },
     },
-  },
+  };
+
+  chart = new Chart(canvas, config);
 };
-
-let chart = new Chart(canvas, config);
-
-// const filter = document.querySelector(".modal__statistic");
-
-// filter.addEventListener("change", (e) => {
-//   // console.log(e.target.value);
-//   if (e.target.value === "Mensual") {
-//     // paintStatistic.innerHTML = "";
-//     const refresh = document.getElementById("chart");
-//     refresh.classList.toggle("chart-week");
-//     const data = {
-//       labels: ["Gastor", "Ingresos"],
-//       datasets: [
-//         {
-//           label: "My First Dataset",
-//           data: [300, 1000],
-//           backgroundColor: [
-//             "rgb(255, 99, 132)",
-//             "rgb(54, 162, 235)",
-//             // "rgb(255, 205, 86)",
-//           ],
-//           hoverOffset: 4,
-//         },
-//       ],
-//     };
-//     const config = {
-//       type: "doughnut",
-//       data: data,
-//       options: {
-//         responsive: true,
-//         plugins: {
-//           legend: {
-//             position: "top",
-//           },
-//           title: {
-//             display: true,
-//             // text: "Chart.js Doughnut Chart",
-//           },
-//         },
-//       },
-//     };
-
-//     let chart2 = new Chart(canvas2, config);
-//   }
-
-//   if (e.target.value === "Semanal") {
-//     const refreh2 = document.getElementById("chart2");
-//     refreh2.classList.toggle("chart-month");
-//     const data = {
-//       labels: ["Gastor", "Ingresos"],
-//       datasets: [
-//         {
-//           label: "My First Dataset",
-//           data: [300, 1000],
-//           backgroundColor: [
-//             "rgb(255, 99, 132)",
-//             "rgb(54, 162, 235)",
-//             // "rgb(255, 205, 86)",
-//           ],
-//           hoverOffset: 4,
-//         },
-//       ],
-//     };
-//     const config = {
-//       type: "doughnut",
-//       data: data,
-//       options: {
-//         responsive: true,
-//         plugins: {
-//           legend: {
-//             position: "top",
-//           },
-//           title: {
-//             display: true,
-//             // text: "Chart.js Doughnut Chart",
-//           },
-//         },
-//       },
-//     };
-
-//     let chart = new Chart(canvas, config);
-//   }
-// });
