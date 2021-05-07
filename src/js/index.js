@@ -1,24 +1,26 @@
 const btnDarkMode = document.getElementById("mode-dark");
 const bodyDarkMode = document.querySelector("body");
-const containerModal = document.querySelector(".container-modal");
-const modal = document.querySelector(".modal");
-const btnSignUp = document.getElementById("signup");
-const btnCloseModal = document.getElementById("modal-close");
-const mountLogin = document.querySelector(".home-login");
-const modalRevenue = document.querySelector(".container-modal__revenue");
-const btnModalRevenue = document.getElementById("open_modal_revenue");
-const btnCloseModalRevenue = document.querySelector(
-  ".btn__close-mdal--revenue"
-);
-const formSignUp = document.getElementById("form_signup");
-const formLogin = document.getElementById("form_login");
-const formRevenue = document.getElementById("form_revenue");
 const btnModalChart = document.querySelector(".icon-chart");
 const btnCloseModalChart = document.querySelector(
   ".btn-close__modal-statistic"
 );
+const btnCloseModal = document.getElementById("modal-close");
+const btnSignUp = document.getElementById("signup");
+const btnModalRevenue = document.getElementById("open_modal_revenue");
+const btnCloseModalRevenue = document.querySelector(
+  ".btn__close-mdal--revenue"
+);
 
+const containerModal = document.querySelector(".container-modal");
+const modal = document.querySelector(".modal");
+const modalRevenue = document.querySelector(".container-modal__revenue");
 const containerModalChart = document.querySelector(".container-statistic");
+
+const mountLogin = document.querySelector(".home-login");
+
+const formSignUp = document.getElementById("form_signup");
+const formLogin = document.getElementById("form_login");
+const formRevenue = document.getElementById("form_revenue");
 
 const wrapLogin = document.getElementById("wrap__home-login");
 const wrapDashboard = document.getElementById("wrap_dashboard");
