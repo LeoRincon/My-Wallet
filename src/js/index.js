@@ -96,30 +96,37 @@ formSignUp.addEventListener("submit", (e) => {
     username: e.target[1].value,
     password: e.target[2].value,
   };
-  // users.push(register);
-  // localStorage.setItem("users", JSON.stringify(users));
-  // resetForm();
+  firebase
+    .auth()
+    .createUserWithEmailAndPassword(register.email, register.password)
+    .then((success) => {
+      const user = firebase.auth().currentUser;
+      let uid;
+      if (user != null) {
+        uid = user.uid;
+      }
+      let firebaseRef = firebase.database().ref();
+      firebaseRef.child(uid).set(register);
+      swal(
+        "Your Account Created",
+        "Your account was created successfully, you can log in now."
+      ).then((value) => {
+        setTimeout(function () {
+          wrapLogin.classList.toggle("wrap__home-login");
+          wrapDashboard.classList.toggle("wrap__dashboard");
+        }, 1000);
+      });
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      swal({
+        type: "error",
+        title: "Error",
+        text: "Error",
+      });
+    });
 });
-
-const validationUser = (login) => {
-  if (
-    users.some(
-      (users) =>
-        users.email === login.email && users.password === login.password
-    )
-  ) {
-    wrapLogin.classList.toggle("wrap__home-login");
-    wrapDashboard.classList.toggle("wrap__dashboard");
-  } else {
-    console.log("datos invalidos");
-  }
-
-  if (localStorage.getItem("revenues")) {
-    revenues = JSON.parse(localStorage.getItem("revenues"));
-    filterRevenue(revenues);
-    // filterDate(revenues);
-  }
-};
 
 formLogin.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -127,7 +134,29 @@ formLogin.addEventListener("submit", (e) => {
     email: e.target[0].value,
     password: e.target[1].value,
   };
-  validationUser(login);
+  firebase
+    .auth()
+    .signInWithEmailAndPassword(login.email, login.password)
+    .then((success) => {
+      swal({
+        type: "successfull",
+        title: "Succesfully signed in",
+      }).then((value) => {
+        setTimeout(function () {
+          wrapLogin.classList.toggle("wrap__home-login");
+          wrapDashboard.classList.toggle("wrap__dashboard");
+        }, 1000);
+      });
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      swal({
+        type: "error",
+        title: "Error",
+        text: "Error",
+      });
+    });
 });
 
 formRevenue.addEventListener("submit", (e) => {
@@ -140,7 +169,6 @@ formRevenue.addEventListener("submit", (e) => {
     fecha: new Date(e.target[4].value),
   };
   revenues.push(revenue);
-  // console.log(revenue);
 
   localStorage.setItem("revenues", JSON.stringify(revenues));
   paintRevenue(revenues);
@@ -177,17 +205,6 @@ const number = (number) => parseInt(number);
 
 const fn = (tipo) => (tipo === "Ingreso" ? "Ingreso" : "Gasto");
 
-// const filter = document.querySelector(".modal__statistic");
-
-// filter.addEventListener("change", (e) => {
-//   // console.log(e.target.value);
-//   if (e.target.value === "Semanal") {
-//     console.log("Soy la semana");
-//   } else {
-//     console.log("soy el mes");
-//   }
-// });
-
 const filterDate = (revenues) => {
   const lastWeek = new Date();
   const today = new Date();
@@ -208,7 +225,6 @@ const filterDate = (revenues) => {
   const filter = document.querySelector(".modal__statistic");
 
   filter.addEventListener("change", (e) => {
-    // console.log(e.target.value);
     if (e.target.value === "Semanal") {
       filterRevenue(revenueWeek);
     } else {
@@ -233,7 +249,6 @@ const filterRevenue = (arr) => {
       const parsedIncome = parseInt(income);
       totalIncome = parsedIncome + totalIncome;
     });
-    // console.log("totalIncome", totalIncome);
   };
 
   const sumExpenses = (arrayOfExpenses) => {
@@ -241,7 +256,6 @@ const filterRevenue = (arr) => {
       const parsedExpense = parseInt(expense);
       totalExpenses = parsedExpense + totalExpenses;
     });
-    // console.log("totalExpense", totalExpenses);
   };
 
   sumIncomes(filteredIngresos);
