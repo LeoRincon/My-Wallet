@@ -246,11 +246,28 @@ main .container-modal .modal form button {
 }
 
 .home-dashboard {
+  position: relative;
   width: 100vw;
   height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.home-dashboard .logout {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  border: none;
+  background-color: transparent;
+  font-size: 2rem;
+  color: #131212;
+  font-weight: 700;
+  cursor: pointer;
+}
+.home-dashboard .logout i {
+  color: #fa4a0c;
+  margin-left: 10px;
+  font-size: 2.4rem;
 }
 .home-dashboard .dashboard__header {
   width: 90%;
@@ -314,12 +331,22 @@ main .container-modal .modal form button {
   margin-bottom: calc(40px * 2);
 }
 .home-dashboard .container-revenue .item-revenue .card-revenue {
+  position: relative;
   margin-top: 20px;
   margin-bottom: 10px;
   padding: 20px;
   width: 70%;
   border-radius: 20px;
   box-shadow: 0px 1px 6px 0px #b7b3b3;
+}
+.home-dashboard .container-revenue .item-revenue .card-revenue .btn-delete__revenue {
+  font-size: 2.4rem;
+  position: absolute;
+  top: 25px;
+  right: 30px;
+  cursor: pointer;
+  color: #fa4a0c;
+  font-weight: 700;
 }
 .home-dashboard .container-revenue .item-revenue .card-revenue h3 {
   font-size: 1.4rem;

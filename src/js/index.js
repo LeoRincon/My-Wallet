@@ -157,6 +157,14 @@ formLogin.addEventListener("submit", (e) => {
         text: "Error",
       });
     });
+  filterRevenue(revenues);
+  filterDate(revenue);
+
+  if (localStorage.getItem("revenues")) {
+    revenues = JSON.parse(localStorage.getItem("revenues"));
+    filterRevenue(revenues);
+    // filterDate(revenues);
+  }
 });
 
 formRevenue.addEventListener("submit", (e) => {
@@ -183,6 +191,7 @@ const paintRevenue = (revenues) => {
     .map((revenue) => {
       return `
     <div class="card-revenue">
+      <i class="far fa-trash-alt btn-delete__revenue"></i>
       <h3>Tipo: <span class="card-revenue--tipo ${fn(revenue.tipo)}">${
         revenue.tipo
       }</span></h3>

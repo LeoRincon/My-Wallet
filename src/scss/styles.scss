@@ -278,11 +278,30 @@ main {
   display: none;
 }
 .home-dashboard {
+  position: relative;
   width: 100vw;
   height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  & .logout {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    border: none;
+    background-color: transparent;
+    font-size: 2rem;
+    color: $color-black;
+    font-weight: 700;
+    cursor: pointer;
+
+    & i {
+      color: $color-primary;
+      margin-left: $margin-low;
+      font-size: 2.4rem;
+    }
+  }
 
   & .dashboard__header {
     width: 90%;
@@ -353,12 +372,23 @@ main {
       margin-bottom: calc(#{$margin-high} * 2);
 
       & .card-revenue {
+        position: relative;
         margin-top: $margin-medium;
         margin-bottom: $margin-low;
         padding: 20px;
         width: 70%;
         border-radius: 20px;
         box-shadow: 0px 1px 6px 0px #b7b3b3;
+
+        & .btn-delete__revenue {
+          font-size: 2.4rem;
+          position: absolute;
+          top: 25px;
+          right: 30px;
+          cursor: pointer;
+          color: $color-primary;
+          font-weight: 700;
+        }
 
         & h3 {
           font-size: 1.4rem;
