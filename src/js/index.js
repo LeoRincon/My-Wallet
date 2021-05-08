@@ -64,7 +64,9 @@ document.addEventListener("DOMContentLoaded", (e) => {
   }
   if (localStorage.getItem("revenues")) {
     revenues = JSON.parse(localStorage.getItem("revenues"));
+    revenues.map((revenue) => (revenue.fecha = new Date(revenue.fecha)));
     paintRevenue(revenues);
+    filterDate(revenues);
   }
 });
 
@@ -103,6 +105,7 @@ const validationUser = (login) => {
   if (localStorage.getItem("revenues")) {
     revenues = JSON.parse(localStorage.getItem("revenues"));
     filterRevenue(revenues);
+    filterDate(revenues);
   }
 };
 
@@ -122,14 +125,16 @@ formRevenue.addEventListener("submit", (e) => {
     category: e.target[1].value,
     description: e.target[2].value,
     valor: e.target[3].value,
-    fecha: e.target[4].value,
+    fecha: new Date(e.target[4].value),
   };
   revenues.push(revenue);
+  // console.log(revenue);
 
   localStorage.setItem("revenues", JSON.stringify(revenues));
   paintRevenue(revenues);
   filterRevenue(revenues);
   resetFormRevenue();
+  filterDate(revenues);
 });
 
 const paintRevenue = (revenues) => {
@@ -160,6 +165,42 @@ const number = (number) => parseInt(number);
 
 const fn = (tipo) => (tipo === "Ingreso" ? "Ingreso" : "Gasto");
 
+const filter = document.querySelector(".modal__statistic");
+
+filter.addEventListener("change", (e) => {
+  // console.log(e.target.value);
+  if (e.target.value === "Semanal") {
+    console.log("Soy la semana");
+  } else {
+    console.log("soy el mes");
+  }
+});
+
+const filterDate = (revenues) => {
+  // const date = new Date();
+  // date.setDate(date.getDate() - 7);
+  // date.toString();
+
+  const lastWeek = new Date();
+  const today = new Date();
+
+  lastWeek.setDate(lastWeek.getDate() - 7);
+
+  const revenueWeek = revenues.filter(
+    (revenue) => revenue.fecha >= lastWeek && revenue.fecha <= today
+  );
+
+  const lastMonth = new Date();
+  lastMonth.setDate(lastMonth.getDate() - 30);
+
+  const revenueMonth = revenues.filter(
+    (revenue) => revenue.fecha >= lastMonth && revenue.fecha <= today
+  );
+
+  console.log(revenueWeek);
+  console.log(revenueMonth);
+};
+
 const filterRevenue = (revuenues) => {
   totalIncome = 0;
   totalExpenses = 0;
@@ -176,7 +217,7 @@ const filterRevenue = (revuenues) => {
       const parsedIncome = parseInt(income);
       totalIncome = parsedIncome + totalIncome;
     });
-    console.log("totalIncome", totalIncome);
+    // console.log("totalIncome", totalIncome);
   };
 
   const sumExpenses = (arrayOfExpenses) => {
@@ -184,7 +225,7 @@ const filterRevenue = (revuenues) => {
       const parsedExpense = parseInt(expense);
       totalExpenses = parsedExpense + totalExpenses;
     });
-    console.log("totalExpense", totalExpenses);
+    // console.log("totalExpense", totalExpenses);
   };
 
   sumIncomes(filteredIngresos);
