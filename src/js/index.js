@@ -1,3 +1,15 @@
+const firebaseConfig = {
+  apiKey: "AIzaSyBSzX_LDMLJyesF24FoQQqmFJ4orqwc7OY",
+  authDomain: "my-wallet-d9fb4.firebaseapp.com",
+  databaseURL: "https://my-wallet-d9fb4-default-rtdb.firebaseio.com",
+  projectId: "my-wallet-d9fb4",
+  storageBucket: "my-wallet-d9fb4.appspot.com",
+  messagingSenderId: "70844433970",
+  appId: "1:70844433970:web:658700439da74e7ea55e2b",
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
 const btnDarkMode = document.getElementById("mode-dark");
 const bodyDarkMode = document.querySelector("body");
 const btnModalChart = document.querySelector(".icon-chart");
@@ -84,9 +96,9 @@ formSignUp.addEventListener("submit", (e) => {
     username: e.target[1].value,
     password: e.target[2].value,
   };
-  users.push(register);
-  localStorage.setItem("users", JSON.stringify(users));
-  resetForm();
+  // users.push(register);
+  // localStorage.setItem("users", JSON.stringify(users));
+  // resetForm();
 });
 
 const validationUser = (login) => {
@@ -105,7 +117,7 @@ const validationUser = (login) => {
   if (localStorage.getItem("revenues")) {
     revenues = JSON.parse(localStorage.getItem("revenues"));
     filterRevenue(revenues);
-    filterDate(revenues);
+    // filterDate(revenues);
   }
 };
 
@@ -165,22 +177,18 @@ const number = (number) => parseInt(number);
 
 const fn = (tipo) => (tipo === "Ingreso" ? "Ingreso" : "Gasto");
 
-const filter = document.querySelector(".modal__statistic");
+// const filter = document.querySelector(".modal__statistic");
 
-filter.addEventListener("change", (e) => {
-  // console.log(e.target.value);
-  if (e.target.value === "Semanal") {
-    console.log("Soy la semana");
-  } else {
-    console.log("soy el mes");
-  }
-});
+// filter.addEventListener("change", (e) => {
+//   // console.log(e.target.value);
+//   if (e.target.value === "Semanal") {
+//     console.log("Soy la semana");
+//   } else {
+//     console.log("soy el mes");
+//   }
+// });
 
 const filterDate = (revenues) => {
-  // const date = new Date();
-  // date.setDate(date.getDate() - 7);
-  // date.toString();
-
   const lastWeek = new Date();
   const today = new Date();
 
@@ -197,18 +205,26 @@ const filterDate = (revenues) => {
     (revenue) => revenue.fecha >= lastMonth && revenue.fecha <= today
   );
 
-  console.log(revenueWeek);
-  console.log(revenueMonth);
+  const filter = document.querySelector(".modal__statistic");
+
+  filter.addEventListener("change", (e) => {
+    // console.log(e.target.value);
+    if (e.target.value === "Semanal") {
+      filterRevenue(revenueWeek);
+    } else {
+      filterRevenue(revenueMonth);
+    }
+  });
 };
 
-const filterRevenue = (revuenues) => {
+const filterRevenue = (arr) => {
   totalIncome = 0;
   totalExpenses = 0;
-  const filteredIngresos = revuenues
+  const filteredIngresos = arr
     .filter((revenue) => revenue.tipo === "Ingreso")
     .map((revenue) => revenue.valor);
 
-  const filteredGastos = revuenues
+  const filteredGastos = arr
     .filter((revenue) => revenue.tipo === "Gasto")
     .map((revenue) => revenue.valor);
 

@@ -9,6 +9,10 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js@3.1.1/dist/chart.min.js"></script>
   <link rel="preconnect" href="https://fonts.gstatic.com">
 
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.4.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.4.0/firebase-database.js"></script>
+
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 
@@ -102,8 +106,8 @@
             <button class="btn-close__modal-statistic">X</button>
             <h2>Statistic:</h2>
             <select name="time-statistic" id="statistic">
-              <option value="Semanal">Semanal</option>
               <option value="Mensual">Mensual</option>
+              <option value="Semanal">Semanal</option>
             </select>
             <div class="paint-statistic">
               <canvas id="chart"></canvas>
