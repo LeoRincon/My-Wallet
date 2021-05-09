@@ -157,8 +157,8 @@ formLogin.addEventListener("submit", (e) => {
         text: "Error",
       });
     });
-  filterRevenue(revenues);
-  filterDate(revenue);
+  // filterRevenue(revenues);
+  // filterDate(revenue);
 
   if (localStorage.getItem("revenues")) {
     revenues = JSON.parse(localStorage.getItem("revenues"));
@@ -307,3 +307,23 @@ const filterRevenue = (arr) => {
 
   chart = new Chart(canvas, config);
 };
+
+// **************************** Delete Revenues ******************************************
+
+// const cardRevenue = document.querySelector(".item-revenue");
+// console.log(cardRevenue);
+
+// cardRevenue.addEventListener("click", (e) => {
+//   // console.log(e.target);
+//   if (e.target.classList.contains("btn-delete__revenue")) {
+//     // console.log("si esta");
+//     e.target.parentElement.remove();
+//   }
+// });
+const cardRevenue = document.querySelector(".item-revenue");
+
+cardRevenue.addEventListener("click", (e) => {
+  if (e.target.classList.contains("btn-delete__revenue")) {
+    e.target.parentElement.remove();
+  }
+});
