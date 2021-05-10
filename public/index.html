@@ -30,7 +30,7 @@
       <span><i class="fas fa-sun"></i></span>
       <span><i class="fas fa-moon"></i></span>
     </button>
-    <section id="wrap__home-login" class="">
+    <section id="wrap__home-login" class="wrap--login">
       <section class="home-login">
 
         <button class="btn__sign-up" id="signup" type="button">Sign Up</button>
@@ -47,7 +47,7 @@
           <input name="email" type="text" aria-label="Email o Username" placeholder="example@example">
           <label class="sub-title__form">Password</label>
           <input name="password" type="password" aria-label="Password" placeholder="password">
-          <button aria-label="login" type="submit">Login</button>
+          <button class="btn-login" aria-label="login" type="submit">Login</button>
         </form>
 
         <!-- ------- ---- -------- Modal Sign Up ---------- -->
@@ -84,7 +84,7 @@
         <button type="button" class="logout" id="logout">Logout<i class="fas fa-sign-out-alt"></i></button>
         <div class="dashboard__header">
           <h2 class="name-user">
-            Hi, <span class="name-user" id="name_user">Name User</span>
+            Hi, <span class="name-user" id="name_user">Leonardo</span>
           </h2>
           <img src="https://static.platzi.com/media/learningpath/badges/fc491fa0-c1ca-448b-8262-629406154dfc.jpg"
             alt="foto de perfil del usuario">
@@ -131,7 +131,7 @@
         <section class="container-modal__revenue">
           <div class="modal-revenue">
             <button class="btn__close-mdal--revenue">X</button>
-            <h2>Añadir ingreso / Gasto</h2>
+            <h2 class="title-modal__revenues">Añadir ingreso / Gasto</h2>
             <form id="form_revenue" action="revenue">
               <label>Tipo</label>
               <select type="text" aria-label="ingrese su tipo " placeholder="categoria: 'hogar'">

@@ -51,6 +51,73 @@ html {
   font-family: "Roboto", sans-serif;
 }
 
+@media (min-width: 768px) {
+  body .container__app .wrap--login {
+    width: 100vw;
+    height: 100vh;
+  }
+  body .container__app .wrap--login .btn__sign-up {
+    position: absolute;
+    top: 0;
+  }
+  body .container__app .wrap--login .logo {
+    width: 378px;
+    height: 275px;
+  }
+  body .container__app .wrap--login .logo img {
+    width: 100%;
+    height: 100%;
+  }
+  body .container__app .wrap--login .form-login {
+    width: 40%;
+  }
+  body .container__app .wrap--login .form-login .btn-login {
+    margin-top: 40px;
+  }
+  body .container__app .wrap--login .form-login .sub-title__form {
+    font-size: 2rem;
+  }
+  body .container__app .wrap--login .form-login input {
+    font-size: 2rem;
+  }
+  body .container__app .wrap--login .container-modal .modal img {
+    width: 260px;
+    height: 260px;
+  }
+  body .container__app .wrap--login .container-modal .modal .modal__form-singup {
+    width: 40%;
+  }
+  body .container__app .wrap--login .container-modal .modal .modal__form-singup label,
+body .container__app .wrap--login .container-modal .modal .modal__form-singup input {
+    font-size: 2rem;
+  }
+  body .container__app .wrap--login .container-modal .modal .modal__form-singup .btn__signup {
+    margin: 40px;
+  }
+  body .container__app .home-dashboard .item-revenue .card-revenue {
+    width: 40%;
+    margin-left: 20px;
+  }
+  body .container__app .home-dashboard .container-modal__revenue .title-modal__revenues {
+    margin-top: calc(40px + 20px);
+    margin-bottom: 40px;
+  }
+  body .container__app .home-dashboard #form_revenue {
+    width: 40%;
+  }
+  body .container__app .home-dashboard .btn__add-revenue {
+    margin-top: 40px;
+  }
+}
+@media (min-width: 1024px) {
+  body .container__app .home-dashboard .dashboard__header {
+    width: 60%;
+  }
+  body .container__app .home-dashboard .item-revenue .card-revenue {
+    width: 30%;
+    margin-left: 20px;
+  }
+}
 body.body__dark-model {
   background-color: #292b2d;
 }
@@ -113,6 +180,8 @@ body.body__dark-model .container-modal__revenue h2 {
 main {
   width: 100vw;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 main .btn__mode-dak {
   height: 30px;
@@ -246,12 +315,7 @@ main .container-modal .modal form button {
 }
 
 .home-dashboard {
-  position: relative;
   width: 100vw;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 .home-dashboard .logout {
   position: absolute;
@@ -272,7 +336,7 @@ main .container-modal .modal form button {
 .home-dashboard .dashboard__header {
   width: 90%;
   height: 60px;
-  margin: 70px 0 30px 0;
+  margin: 70px auto 30px auto;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -288,7 +352,7 @@ main .container-modal .modal form button {
   width: 280px;
   height: 60px;
   border-radius: 20px;
-  margin-bottom: 10px;
+  margin: 0 auto 20px auto;
 }
 .home-dashboard .wrap__card-balance .card-balance {
   background-image: url("../img/card-statistical.svg");
@@ -315,11 +379,36 @@ main .container-modal .modal form button {
 }
 .home-dashboard .container-revenue {
   width: 80%;
+  margin: 0 auto;
 }
 .home-dashboard .container-revenue h2 {
   margin-top: 20px;
   color: #fa4a0c;
   font-size: 2.2rem;
+  text-align: center;
+}
+.home-dashboard .container-revenue .container__search {
+  width: 230px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #292b2d;
+  border-radius: 20px;
+  box-shadow: 0px 1px 6px 0px #b7b3b3;
+}
+.home-dashboard .container-revenue .container__search input {
+  border: none;
+  background-color: transparent;
+  outline: none;
+  font-size: 1.6rem;
+}
+.home-dashboard .container-revenue .container__search i {
+  color: #fa4a0c;
+  font-size: 1.6rem;
+  font-weight: 700;
 }
 .home-dashboard .container-revenue .item-revenue {
   width: 100%;
@@ -328,7 +417,7 @@ main .container-modal .modal form button {
   justify-content: center;
   margin-top: 20px;
   border-radius: 30px;
-  margin-bottom: calc(40px * 2);
+  margin-bottom: calc(40px);
 }
 .home-dashboard .container-revenue .item-revenue .card-revenue {
   position: relative;
@@ -394,6 +483,7 @@ main .container-modal .modal form button {
   width: 100vw;
   height: 100vh;
   position: absolute;
+  top: 0;
   background-color: rgba(215, 215, 215, 0.8);
   display: flex;
   justify-content: center;

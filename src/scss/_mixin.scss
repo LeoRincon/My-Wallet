@@ -1,0 +1,102 @@
+@import "./variables";
+
+@mixin tabletMediaLogin() {
+  @media #{$tabletMediaQuerie} {
+    .container__app {
+      & .wrap--login {
+        // margin: 100px 0;
+        width: 100vw;
+        height: 100vh;
+
+        & .btn__sign-up {
+          position: absolute;
+          top: 0;
+        }
+
+        & .logo {
+          width: 378px;
+          height: 275px;
+
+          & img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+        & .form-login {
+          width: 40%;
+
+          & .btn-login {
+            margin-top: $margin-high;
+          }
+
+          & .sub-title__form {
+            font-size: 2rem;
+          }
+
+          & input {
+            font-size: 2rem;
+          }
+        }
+
+        & .container-modal .modal {
+          & img {
+            width: 260px;
+            height: 260px;
+          }
+
+          & .modal__form-singup {
+            width: 40%;
+
+            & label,
+            input {
+              font-size: 2rem;
+            }
+
+            & .btn__signup {
+              margin: $margin-high;
+            }
+          }
+        }
+      }
+
+      & .home-dashboard {
+        & .item-revenue .card-revenue {
+          width: 40%;
+          margin-left: $margin-medium;
+        }
+
+        & .container-modal__revenue {
+          & .title-modal__revenues {
+            margin-top: calc(#{$margin-high} + #{$margin-medium});
+            margin-bottom: $margin-high;
+          }
+        }
+
+        & #form_revenue {
+          width: 40%;
+        }
+
+        & .btn__add-revenue {
+          margin-top: $margin-high;
+        }
+      }
+    }
+  }
+}
+
+@mixin desktopMediaLogin() {
+  @media #{$DesktopMediaQuerie} {
+    .container__app {
+      & .home-dashboard {
+        & .dashboard__header {
+          width: 60%;
+        }
+
+        & .item-revenue .card-revenue {
+          width: 30%;
+          margin-left: $margin-medium;
+        }
+      }
+    }
+  }
+}

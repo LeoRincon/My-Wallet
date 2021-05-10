@@ -1,5 +1,6 @@
 @import "./_variables.scss";
 @import "./_placeholder.scss";
+@import "./mixin.scss";
 
 * {
   margin: 0;
@@ -12,6 +13,8 @@ html {
 }
 
 body {
+  @include tabletMediaLogin();
+  @include desktopMediaLogin();
   // **************** Styles dark mode *******************
 
   &.body__dark-model {
@@ -99,6 +102,8 @@ body {
 main {
   width: 100vw;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
 
   & .btn__mode-dak {
     height: 30px;
@@ -278,12 +283,12 @@ main {
   display: none;
 }
 .home-dashboard {
-  position: relative;
+  // position: relative;
   width: 100vw;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  // height: 100vh;
+  // display: flex;
+  // flex-direction: column;
+  // align-items: center;
 
   & .logout {
     position: absolute;
@@ -306,7 +311,7 @@ main {
   & .dashboard__header {
     width: 90%;
     height: 60px;
-    margin: 70px 0 30px 0;
+    margin: 70px auto 30px auto;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -324,7 +329,7 @@ main {
     width: 280px;
     height: 60px;
     border-radius: 20px;
-    margin-bottom: $margin-low;
+    margin: 0 auto $margin-medium auto;
 
     & .card-balance {
       background-image: url("../img/card-statistical.svg");
@@ -355,11 +360,39 @@ main {
 
   & .container-revenue {
     width: 80%;
+    margin: 0 auto;
 
     & h2 {
       margin-top: $margin-medium;
       color: $color-primary;
       font-size: 2.2rem;
+      text-align: center;
+    }
+
+    & .container__search {
+      width: 230px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      margin: 0 auto;
+      margin-top: 20px;
+      padding: 10px;
+      border: 1px solid $color-dark-mode;
+      border-radius: 20px;
+      box-shadow: 0px 1px 6px 0px #b7b3b3;
+
+      & input {
+        border: none;
+        background-color: transparent;
+        outline: none;
+        font-size: 1.6rem;
+      }
+
+      & i {
+        color: $color-primary;
+        font-size: 1.6rem;
+        font-weight: 700;
+      }
     }
 
     & .item-revenue {
@@ -369,7 +402,7 @@ main {
       justify-content: center;
       margin-top: $margin-medium;
       border-radius: 30px;
-      margin-bottom: calc(#{$margin-high} * 2);
+      margin-bottom: calc(#{$margin-high});
 
       & .card-revenue {
         position: relative;
@@ -445,6 +478,7 @@ main {
     width: 100vw;
     height: 100vh;
     position: absolute;
+    top: 0;
     background-color: rgba(215, 215, 215, 0.8);
     display: flex;
     justify-content: center;
