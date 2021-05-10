@@ -7,6 +7,7 @@ const firebaseConfig = {
   messagingSenderId: "70844433970",
   appId: "1:70844433970:web:658700439da74e7ea55e2b",
 };
+
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
@@ -157,13 +158,10 @@ formLogin.addEventListener("submit", (e) => {
         text: "Error",
       });
     });
-  // filterRevenue(revenues);
-  // filterDate(revenue);
 
   if (localStorage.getItem("revenues")) {
     revenues = JSON.parse(localStorage.getItem("revenues"));
     filterRevenue(revenues);
-    // filterDate(revenues);
   }
 });
 
@@ -317,20 +315,9 @@ const filterRevenue = (arr) => {
   accountBalance.textContent = `${balance}`;
 };
 
-// **************************** Delete Revenues ******************************************
-
-const cardRevenue = document.querySelector(".item-revenue");
-
-cardRevenue.addEventListener("click", (e) => {
-  if (e.target.classList.contains("btn-delete__revenue")) {
-    e.target.parentElement.remove();
-  }
-});
-
 // **************************** Search Revenues ******************************************
 
 const searchRevenues = document.querySelector(".search__revunues");
-// console.log(searchRevenues);
 
 const search = (revenues, filter) => {
   const filtrado = revenues.filter((revenue) => {
@@ -354,11 +341,12 @@ searchRevenues.addEventListener("keyup", (e) => {
   }
 });
 
-// // **************************** Balance Revenues ******************************************
+// **************************** Delete Revenues ******************************************
 
-// const accountBalance = document.querySelector(".card-balance__balance");
-// console.log(accountBalance);
+const cardRevenue = document.querySelector(".item-revenue");
 
-// let balance = totalIncome - totalIncome;
-
-// accountBalance.textContent = `${balance}`;
+cardRevenue.addEventListener("click", (e) => {
+  if (e.target.classList.contains("btn-delete__revenue")) {
+    e.target.parentElement.remove();
+  }
+});
