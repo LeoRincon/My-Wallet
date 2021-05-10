@@ -306,20 +306,19 @@ const filterRevenue = (arr) => {
   };
 
   chart = new Chart(canvas, config);
+
+  // *****Balance Revenues
+
+  const accountBalance = document.querySelector(".card-balance__balance");
+  console.log(accountBalance);
+
+  let balance = totalIncome - totalExpenses;
+
+  accountBalance.textContent = `${balance}`;
 };
 
 // **************************** Delete Revenues ******************************************
 
-// const cardRevenue = document.querySelector(".item-revenue");
-// console.log(cardRevenue);
-
-// cardRevenue.addEventListener("click", (e) => {
-//   // console.log(e.target);
-//   if (e.target.classList.contains("btn-delete__revenue")) {
-//     // console.log("si esta");
-//     e.target.parentElement.remove();
-//   }
-// });
 const cardRevenue = document.querySelector(".item-revenue");
 
 cardRevenue.addEventListener("click", (e) => {
@@ -327,3 +326,39 @@ cardRevenue.addEventListener("click", (e) => {
     e.target.parentElement.remove();
   }
 });
+
+// **************************** Search Revenues ******************************************
+
+const searchRevenues = document.querySelector(".search__revunues");
+// console.log(searchRevenues);
+
+const search = (revenues, filter) => {
+  const filtrado = revenues.filter((revenue) => {
+    const { tipo, category } = revenue;
+    return `${tipo} ${category}`.toUpperCase().includes(filter.toUpperCase());
+  });
+  cardRevenue.innerHTML = "";
+  paintRevenue(filtrado);
+};
+
+searchRevenues.addEventListener("keyup", (e) => {
+  e.preventDefault();
+  const filter = searchRevenues.value;
+  if (e.key === "Enter") {
+    if (searchRevenues.value === "") {
+      cardRevenue.innerHTML = "";
+      paintRevenue(revenues);
+    } else {
+      search(revenues, filter);
+    }
+  }
+});
+
+// // **************************** Balance Revenues ******************************************
+
+// const accountBalance = document.querySelector(".card-balance__balance");
+// console.log(accountBalance);
+
+// let balance = totalIncome - totalIncome;
+
+// accountBalance.textContent = `${balance}`;
