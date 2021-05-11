@@ -23,6 +23,7 @@ const btnModalRevenue = document.getElementById("open_modal_revenue");
 const btnCloseModalRevenue = document.querySelector(
   ".btn__close-mdal--revenue"
 );
+const btnLogout = document.getElementById("logout");
 
 const containerModal = document.querySelector(".container-modal");
 const modal = document.querySelector(".modal");
@@ -143,10 +144,8 @@ formLogin.addEventListener("submit", (e) => {
         type: "successfull",
         title: "Succesfully signed in",
       }).then((value) => {
-        setTimeout(function () {
-          wrapLogin.classList.toggle("wrap__home-login");
-          wrapDashboard.classList.toggle("wrap__dashboard");
-        }, 1000);
+        wrapLogin.classList.toggle("wrap__home-login");
+        wrapDashboard.classList.toggle("wrap__dashboard");
       });
     })
     .catch((error) => {
@@ -162,6 +161,53 @@ formLogin.addEventListener("submit", (e) => {
   if (localStorage.getItem("revenues")) {
     revenues = JSON.parse(localStorage.getItem("revenues"));
     filterRevenue(revenues);
+  }
+});
+
+const signOut = () => {
+  firebase
+    .auth()
+    .signOut()
+    .then(function () {
+      // Sign-out successful.
+      swal({
+        type: "successfull",
+        title: "Signed Out",
+      }).then((value) => {
+        wrapLogin.classList.toggle("wrap__home-login");
+        wrapDashboard.classList.toggle("wrap__dashboard");
+      });
+    })
+    .catch(function (error) {
+      // An error happened.
+      let errorMessage = error.message;
+      swal({
+        type: "error",
+        title: "Error",
+        text: "Error",
+      });
+    });
+};
+
+btnLogout.addEventListener("click", signOut);
+
+firebase.auth().onAuthStateChanged((user) => {
+  if (user) {
+    //   User is signed in.
+    let user = firebase.auth().currentUser;
+    let uid;
+    if (user != null) {
+      uid = user.uid;
+      console.log("entro");
+    }
+    let firebaseRefKey = firebase.database().ref().child(uid);
+    firebaseRefKey.on("value", (dataSnapShot) => {
+      document.getElementById("name_user").innerHTML =
+        dataSnapShot.val().username;
+    });
+  } else {
+    //   No user is signed in.
+    console.log("salio");
   }
 });
 
@@ -308,7 +354,6 @@ const filterRevenue = (arr) => {
   // *****Balance Revenues
 
   const accountBalance = document.querySelector(".card-balance__balance");
-  console.log(accountBalance);
 
   let balance = totalIncome - totalExpenses;
 

@@ -283,12 +283,7 @@ main {
   display: none;
 }
 .home-dashboard {
-  // position: relative;
   width: 100vw;
-  // height: 100vh;
-  // display: flex;
-  // flex-direction: column;
-  // align-items: center;
 
   & .logout {
     position: absolute;
@@ -453,11 +448,13 @@ main {
       font-size: 3rem;
       color: $color-primary;
       margin-right: 30px;
+      cursor: pointer;
     }
     & .icon-chart {
       font-size: 3rem;
       color: $color-primary;
-      margin-left: cacl(#{$margin-medium} + 10px);
+      margin-left: calc(#{$margin-medium} + 10px);
+      cursor: pointer;
     }
 
     & button {
@@ -471,6 +468,7 @@ main {
       border-radius: 50%;
       position: fixed;
       bottom: 5px;
+      cursor: pointer;
     }
   }
 

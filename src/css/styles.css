@@ -461,11 +461,13 @@ main .container-modal .modal form button {
   font-size: 3rem;
   color: #fa4a0c;
   margin-right: 30px;
+  cursor: pointer;
 }
 .home-dashboard .nav .icon-chart {
   font-size: 3rem;
   color: #fa4a0c;
-  margin-left: cacl(20px10px);
+  margin-left: calc(20px + 10px);
+  cursor: pointer;
 }
 .home-dashboard .nav button {
   border: none;
@@ -478,6 +480,7 @@ main .container-modal .modal form button {
   border-radius: 50%;
   position: fixed;
   bottom: 5px;
+  cursor: pointer;
 }
 .home-dashboard .container-statistic {
   width: 100vw;
