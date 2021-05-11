@@ -19,7 +19,7 @@ My wallet is a web app that allows you to track your personal finances. where yo
 
 ### Deployment link
 
--
+- https://master-wallet.netlify.app/
 
 ### Used technologies
 
