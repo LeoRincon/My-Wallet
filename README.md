@@ -23,12 +23,17 @@ My wallet is a web app that allows you to track your personal finances. where yo
 
 ### Used technologies
 
-- HTML
-- CSS
-- JavaScript
-- npm
-- Sass
+- HTML5
+- CSS3
+- JavaScript 'ES5 +'
+- npm (version '7.7.6')
+- Sass (version '1.32.12')
+- Chart.js"(version '3.2.1' )
 
-### link to the repository
+### Link to the repository
 
 - https://bitbucket.org/leobotache7/my-wallet/src/main/
+
+### Link requirements
+
+- https://www.notion.so/3d1aae5c263f479b915cc141f837e681?v=3d8bb435fc3b4791aa0dac622d670d71
