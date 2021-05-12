@@ -30,6 +30,8 @@ My wallet is a web app that allows you to track your personal finances. where yo
 - Sass (version '1.32.12')
 - Chart.js"(version '3.2.1' )
 
+The use of the technologies previously named, was in order to fine-tune knowledge of languages in a vanilla way for the most part.
+
 ### Link to the repository
 
 - https://bitbucket.org/leobotache7/my-wallet/src/main/
@@ -37,3 +39,13 @@ My wallet is a web app that allows you to track your personal finances. where yo
 ### Link requirements
 
 - https://www.notion.so/3d1aae5c263f479b915cc141f837e681?v=3d8bb435fc3b4791aa0dac622d670d71
+
+### Academic Coach
+
+- Crisly Gonzáles
+
+### Autor
+
+Leonardo Rincón
+Discord: @leobotache7
+Font-End Developer
